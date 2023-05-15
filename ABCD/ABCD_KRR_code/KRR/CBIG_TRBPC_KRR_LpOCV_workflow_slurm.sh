@@ -19,7 +19,8 @@ main() {
 ############################
 root_dir=`dirname "$(readlink -f "$0")"`
 export MATLABPATH=$CBIG_CODE_DIR/setup
-project_dir=${CBIG_CODE_DIR}/stable_projects/predict_phenotypes/ChenTam2022_TRBPC
+# project_dir=${CBIG_CODE_DIR}/stable_projects/predict_phenotypes/ChenTam2022_TRBPC
+project_dir=${INTEXT_DIR}/ABCD
 mkdir -p $outdir/logs
 LF="$outdir/logs/${outstem}.log"
 if [ -f $LF ]; then rm $LF; fi
@@ -42,11 +43,11 @@ echo "stage = $stage" >> $LF
 ############################
 
 if [ "$stage" = "submitloop" ]; then
-    # prepare input parameters to the single-kernel regression
-#    matlab -nodesktop -nosplash -nodisplay -r " addpath $root_dir; CBIG_TRBPC_KRR_LpOCV_prepare_parameters( '$csv_file',\
-#        '$subject_list', '$feature_file', '$y_list', '$covariate_list', '$FD_file', '$DVARS_file', '$outdir', '$outstem', \
-#        '$num_leave_out','$num_inner_folds', '$ker_param_file','$lambda_set_file','$threshold_set_file',\
-#        '$metric' ); exit; " >> $LF 2>&1
+    prepare input parameters to the single-kernel regression
+   matlab -nodesktop -nosplash -nodisplay -r " addpath $root_dir; CBIG_TRBPC_KRR_LpOCV_prepare_parameters( '$csv_file',\
+       '$subject_list', '$feature_file', '$y_list', '$covariate_list', '$FD_file', '$DVARS_file', '$outdir', '$outstem', \
+       '$num_leave_out','$num_inner_folds', '$ker_param_file','$lambda_set_file','$threshold_set_file',\
+       '$metric' ); exit; " >> $LF 2>&1
 
     # run testloop cross validation
     paramfile=${outdir}/param.mat
@@ -116,7 +117,7 @@ fi
 #############################
 usage() { echo "
 NAME:
-	CBIG_TRBPC_KRR_LpOCV_workflow.sh
+	CBIG_TRBPC_KRR_LpOCV_workflow_slurm.sh
 
 DESCRIPTION:
 	This function performs leave-p-out cross-validation workflow for single-kernel ridge regression.
@@ -171,10 +172,15 @@ OPTIONAL ARGUMENTS:
 										  cluster
 	
 Example:
-	$CBIG_CODE_DIR/stable_projects/predict_phenotypes/ChenTam2021_TRBPC/KRR_LpOCV/SingleKernel/
-	CBIG_TRBPC_KRR_LpOCV_workflow.sh -csv_file xxx/behav_and_covariates.csv -subject_list xxx/subjects_all.txt
-	-feature_file xxx/RSFC_all_subjects.mat -y_list xxx/all_behav_measures.txt -covariate_list xxx/age_sex_motion.txt
-	-FD_file none -DVARS_file none -outdir xxx/ref_output
+	bash $IntExt_Dir/ABCD/ABCD_KRR_code/KRR/CBIG_TRBPC_KRR_LpOCV_workflow_slurm.sh -csv_file $IntExt_Dir/ABCD_data_inputs/ABCD_alldata.csv 
+	-subject_list $IntExt_Dir/ABCD_data_inputs/release2_subjects_mf_all_task_all_score_unrelated.txt -feature_files $IntExt_Dir/ABCD_data_inputs/FC_all.mat 
+	-y_list $IntExt_Dir/ABCD_data_inputs/variables_to_predict.txt -covariate_list $IntExt_Dir/ABCD_data_inputs/covariates_list.txt -FD_file none -DVARS_file none -outstem all_score 
+	-outdir $IntExt_Dir/ABCD_KRR_output/ -stage submitloop
+	
+	bash $IntExt_Dir/ABCD/ABCD_KRR_code/KRR/CBIG_TRBPC_KRR_LpOCV_workflow_slurm.sh -csv_file $IntExt_Dir/ABCD_data_inputs/ABCD_alldata.csv 
+	-subject_list $IntExt_Dir/ABCD_data_inputs/release2_subjects_mf_all_task_all_score_unrelated.txt -feature_files $IntExt_Dir/ABCD_data_inputs/FC_all.mat 
+	-y_list $IntExt_Dir/ABCD_data_inputs/variables_to_predict.txt -covariate_list $IntExt_Dir/ABCD_data_inputs/covariates_list.txt -FD_file none -DVARS_file none -outstem all_score 
+	-outdir $IntExt_Dir/ABCD_KRR_output/ -stage gather
 
 " 1>&2; exit 1; }
 
