@@ -161,12 +161,12 @@ Example:
 	bash $IntExt_Dir/ABCD/ABCD_KRR_code/multiKRR/CBIG_TRBPC_multiKRR_LpOCV_workflow_slurm.sh -csv_file $IntExt_Dir/ABCD_data_inputs/ABCD_alldata.csv 
 	-subject_list $IntExt_Dir/ABCD_data_inputs/release2_subjects_mf_all_task_all_score_unrelated.txt -feature_files $IntExt_Dir/ABCD_data_inputs/FC_all.mat 
 	-y_list $IntExt_Dir/ABCD_data_inputs/variables_to_predict.txt -covariate_list $IntExt_Dir/ABCD_data_inputs/covariates_list.txt -FD_file none -DVARS_file none -outstem all_score 
-	-outdir $IntExt_Dir/ABCD_KRR_output/ -stage submitloop
+	-outdir $IntExt_Dir/ABCD_multiKRR_output/ -stage submitloop
 	
 	bash $IntExt_Dir/ABCD/ABCD_KRR_code/multiKRR/CBIG_TRBPC_multiKRR_LpOCV_workflow_slurm.sh -csv_file $IntExt_Dir/ABCD_data_inputs/ABCD_alldata.csv 
 	-subject_list $IntExt_Dir/ABCD_data_inputs/release2_subjects_mf_all_task_all_score_unrelated.txt -feature_files $IntExt_Dir/ABCD_data_inputs/FC_all.mat 
 	-y_list $IntExt_Dir/ABCD_data_inputs/variables_to_predict.txt -covariate_list $IntExt_Dir/ABCD_data_inputs/covariates_list.txt -FD_file none -DVARS_file none -outstem all_score 
-	-outdir $IntExt_Dir/ABCD_KRR_output/ -stage gather
+	-outdir $IntExt_Dir/ABCD_multiKRR_output/ -stage gather
 
 " 1>&2; exit 1; }
 
