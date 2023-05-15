@@ -5,6 +5,8 @@ Functions in this folder provides a wrapper function to perform single-kernel le
 # Usage
 `CBIG_TRBPC_KRR_LpOCV_workflow_slurm.sh` is the wrapper function that performs the  single-kernel leave-p-sites-out cross-validation workflow.
 
+Suppose all input files are under the directory `$IntExt_Dir/ABCD_data_inputs/`, and all model outputs go to `$IntExt_Dir/ABCD_KRR_output/`,
+
 To perform single-KRR model prediction, 
 
 1. Run `bash $IntExt_Dir/ABCD/ABCD_KRR_code/KRR/CBIG_TRBPC_KRR_LpOCV_workflow_slurm.sh -csv_file $IntExt_Dir/ABCD_data_inputs/ABCD_alldata.csv 
