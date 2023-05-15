@@ -148,7 +148,8 @@ function CBIG_TRBPC_KRR_LpOCV_prepare_parameters( csv_file, subject_list, featur
 % Written by Jianzhong Chen and CBIG under MIT license: https://github.com/ThomasYeoLab/CBIG/blob/master/LICENSE.md
 
 %% setting up
-project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
+#project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
+project_code_dir = fullfile(getenv('INTEXT_DIR'),'ABCD');
 addpath(genpath(project_code_dir));
 
 if(ischar(num_leave_out))
