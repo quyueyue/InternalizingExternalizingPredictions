@@ -9,8 +9,14 @@ To perform multi-KRR model prediction,
 
 1. Run `bash CBIG_TRBPC_multiKRR_create_features.sh`
 
-2. Run `bash CBIG_TRBPC_multiKRR_LpOCV_workflow_slurm.sh -csv_file /gpfs/milgram/project/holmes/yq222/FYP/ABCD/ABCD_alldata.csv -subject_list /gpfs/milgram/project/holmes/yq222/FYP/ABCD/release2_subjects_mf_all_task_all_score_unrelated.txt -feature_files /gpfs/milgram/project/holmes/yq222/FYP/ABCD/FC_all.mat -y_list /gpfs/milgram/project/holmes/yq222/FYP/ABCD/variables_to_predict.txt -covariate_list /gpfs/milgram/project/holmes/yq222/FYP/ABCD/covariates_list.txt -FD_file none -DVARS_file none -outstem all_score -outdir /gpfs/milgram/project/holmes/yq222/FYP/FYP_output/ -stage submitloop`
+2. Run `bash $IntExt_Dir/ABCD/ABCD_KRR_code/multiKRR/CBIG_TRBPC_multiKRR_LpOCV_workflow_slurm.sh -csv_file $IntExt_Dir/ABCD_data_inputs/ABCD_alldata.csv 
+	-subject_list $IntExt_Dir/ABCD_data_inputs/release2_subjects_mf_all_task_all_score_unrelated.txt -feature_files $IntExt_Dir/ABCD_data_inputs/FC_all.mat 
+	-y_list $IntExt_Dir/ABCD_data_inputs/variables_to_predict.txt -covariate_list $IntExt_Dir/ABCD_data_inputs/covariates_list.txt -FD_file none -DVARS_file none -outstem all_score 
+	-outdir $IntExt_Dir/ABCD_KRR_output/ -stage submitloop`
 
-3. After the first step is finished, run `bash CBIG_TRBPC_multiKRR_LpOCV_workflow_slurm.sh -csv_file /gpfs/milgram/project/holmes/yq222/FYP/ABCD/ABCD_alldata.csv -subject_list /gpfs/milgram/project/holmes/yq222/FYP/ABCD/release2_subjects_mf_all_task_all_score_unrelated.txt -feature_files /gpfs/milgram/project/holmes/yq222/FYP/ABCD/FC_all.mat -y_list /gpfs/milgram/project/holmes/yq222/FYP/ABCD/variables_to_predict.txt -covariate_list /gpfs/milgram/project/holmes/yq222/FYP/ABCD/covariates_list.txt -FD_file none -DVARS_file none -outstem all_score -outdir /gpfs/milgram/project/holmes/yq222/FYP/FYP_output/ -stage gather`
+3. After the first step is finished, run `bash $IntExt_Dir/ABCD/ABCD_KRR_code/multiKRR/CBIG_TRBPC_multiKRR_LpOCV_workflow_slurm.sh -csv_file $IntExt_Dir/ABCD_data_inputs/ABCD_alldata.csv 
+	-subject_list $IntExt_Dir/ABCD_data_inputs/release2_subjects_mf_all_task_all_score_unrelated.txt -feature_files $IntExt_Dir/ABCD_data_inputs/FC_all.mat 
+	-y_list $IntExt_Dir/ABCD_data_inputs/variables_to_predict.txt -covariate_list $IntExt_Dir/ABCD_data_inputs/covariates_list.txt -FD_file none -DVARS_file none -outstem all_score 
+	-outdir $IntExt_Dir/ABCD_KRR_output/ -stage gather`
 
 For more information about specific inputs, run `./CBIG_TRBPC_multiKRR_LpOCV_workflow_slurm.sh --help`.
