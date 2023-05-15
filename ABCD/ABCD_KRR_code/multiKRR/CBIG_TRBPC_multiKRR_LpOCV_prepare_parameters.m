@@ -169,7 +169,7 @@ function CBIG_TRBPC_multiKRR_LpOCV_prepare_parameters( csv_file, subject_list, f
 
 %% setting up
 #project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
-project_code_dir = fullfile(getenv('INTEXT_DIR'),'ABCD');
+project_code_dir = fullfile(getenv('IntExt_DIR'),'ABCD');
 addpath(genpath(project_code_dir));
 
 if(ischar(num_leave_out))
