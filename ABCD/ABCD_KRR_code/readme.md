@@ -1,4 +1,4 @@
-# Single- & Multi-Kernel Regression Leave-p-Out Cross-Validation workfolw in ABCD Study
+# Single- & Multi-Kernel Regression Leave-p-Out Cross-Validation workflow in ABCD Study
 
 Functions under "multiKRR" folder perform multi-kernel leave-p-sites-out cross-validation workflow used in the ABCD analyses. 
 
