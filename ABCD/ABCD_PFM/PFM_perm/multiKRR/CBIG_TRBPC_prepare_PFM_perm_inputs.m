@@ -23,7 +23,7 @@ function CBIG_TRBPC_prepare_PFM_perm_inputs(feature_files, multiKRR_dir, outdir)
 %
 % Written by Jianzhong Chen and CBIG under MIT license: https://github.com/ThomasYeoLab/CBIG/blob/master/LICENSE.md
 
-project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2021_TRBPC');
+project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
 addpath(genpath(project_code_dir));
 
 %% get FC averaged in ech network-pair blocks
@@ -43,11 +43,12 @@ for i = 1:N_task
     FC_all = normalize(FC_all,'norm',2);
     for j = 1:N_sub
         curr_FC = FC_all(:,j);
+	disp('Computing average FC within network...');
         mean_FC = CBIG_TRBPC_compute_FC_average_within_network(CBIG_TRBPC_FC_vector2mat(curr_FC));
         FC_network_mean((i-1)*N_net_pair+1:i*N_net_pair,j) = mean_FC;
     end
 end
-
+disp('Writing network mean FC file...');
 save(fullfile(outdir,'FC_network_mean.mat'), 'FC_network_mean');
 
 %% load cross-validation split
@@ -63,6 +64,7 @@ for i = 1:N_fold
     train_ind = ~test_ind;
     folds{i} = train_ind;
 end
+disp('Writing cross validation subfold file...')
 save(fullfile(outdir,'folds.mat'), 'folds');
 
 %% load behavior score after regression
