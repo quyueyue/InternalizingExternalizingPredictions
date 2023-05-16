@@ -7,4 +7,4 @@ Suppose all predictive feature weight matrices are stored in `$IntExt_Dir/ABCD_K
 
 1. Run `prepare_PFM_perm_inputs_KRR.sh`
 
-2. Run `bash CBIG_TRBPC_PFM_perm_wrapper.sh -i $IntExt_Dir/ABCD_KRR_output/ -f $IntExt_Dir/ABCD_data_inputs/FC_subjects_all_task_all_score_rs_bp_sm6.mat -n 1000 -t 2000 -g $IntExt_Dir/ABCD_data_inputs/site_id_list.txt -o $IntExt_Dir/ABCD_PFM_perm_output/KRR/ -c Milgram
+2. Run `bash CBIG_TRBPC_PFM_perm_wrapper.sh -i $IntExt_Dir/ABCD_KRR_output/ -f $IntExt_Dir/ABCD_data_inputs/FC_subjects_all_task_all_score_rs_bp_sm6.mat -n 1000 -t 2000 -g $IntExt_Dir/ABCD_data_inputs/site_id_list.txt -o $IntExt_Dir/ABCD_PFM_perm_output/KRR/ -c Milgram`
