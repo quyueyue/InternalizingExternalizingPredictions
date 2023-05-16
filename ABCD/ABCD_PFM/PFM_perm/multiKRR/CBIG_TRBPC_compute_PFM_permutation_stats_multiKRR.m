@@ -1,4 +1,4 @@
-function CBIG_TRBPC_compute_PFM_permutation_stats(FC_mean_file, y_file, krr_folds, ...
+function CBIG_TRBPC_compute_PFM_permutation_stats_multiKRR(FC_mean_file, y_file, krr_folds, ...
     perm_seed_start, perm_num, site_list, outdir)
 
 % CBIG_TRBPC_compute_PFM_permutation_stats(FC_mean_file, y_file, krr_folds, ...
@@ -47,7 +47,8 @@ function CBIG_TRBPC_compute_PFM_permutation_stats(FC_mean_file, y_file, krr_fold
 % Written by Jianzhong Chen and CBIG under MIT license: https://github.com/ThomasYeoLab/CBIG/blob/master/LICENSE.md
 
 %% parse input
-project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
+% project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
+project_code_dir = fullfile(getenv('IntExt_DIR'),'ABCD');
 addpath(genpath(project_code_dir));
 
 if(isstr(perm_seed_start))

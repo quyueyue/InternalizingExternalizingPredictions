@@ -6,4 +6,4 @@
 
 module load miniconda
 conda activate py3_env
-python PFM_corr_permutation_int_ext.py
+python PFM_corr_permutation_int_ext_KRR.py

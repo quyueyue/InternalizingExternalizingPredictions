@@ -6,7 +6,4 @@ We implemented 2000 permutations in total. The output files are separated into t
 
 Suppose all predictive feature weight matrices are stored in `$IntExt_Dir/ABCD_KRR_output/` all behavioral and neuroimaging data input files are stored in `$IntExt_Dir/ABCD_data_inputs/`, and the resulting permuted predictive feature weights go to `$IntExt_Dir/ABCD_PFM_perm_output/PFM/KRR/`,
 
-
-1. Run `sbatch prepare_PFM_perm_inputs_KRR.sh`
-
-2. Run `bash CBIG_TRBPC_PFM_perm_wrapper_KRR.sh -i $IntExt_Dir/ABCD_KRR_output/ -f $IntExt_Dir/ABCD_data_inputs/FC_subjects_all_task_all_score_rs_bp_sm6.mat -n 1000 -t 2000 -g $IntExt_Dir/ABCD_data_inputs/site_id_list.txt -o $IntExt_Dir/ABCD_PFM_perm_output/PFM/KRR/ -c Milgram`
+Run `bash CBIG_TRBPC_PFM_perm_wrapper_KRR.sh -i $IntExt_Dir/ABCD_KRR_output/ -f $IntExt_Dir/ABCD_data_inputs/FC_subjects_all_task_all_score_rs_bp_sm6.mat -n 1000 -t 2000 -g $IntExt_Dir/ABCD_data_inputs/site_id_list.txt -o $IntExt_Dir/ABCD_PFM_perm_output/PFM/KRR/ -c Milgram`
