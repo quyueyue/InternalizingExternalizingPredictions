@@ -13,8 +13,9 @@ from scipy import stats
 import statsmodels
 from statsmodels.stats.multitest import fdrcorrection
 
-FYP_output_dir = '/gpfs/milgram/project/holmes/yq222/FYP/FYP_output/'
-mean_relevance_all_state_df = pd.read_csv(os.path.join(FYP_output_dir,'mean_activation_all_state_df_reordered_int_ext.csv'),header=None)
+# CHANGE: the directory which contains mean_activation_all_state_df_reordered_int_ext.csv
+multiKRR_output_dir = '${IntExt_Dir}/ABCD_KRR_output/'
+mean_relevance_all_state_df = pd.read_csv(os.path.join(multiKRR_output_dir,'mean_activation_all_state_df_reordered_int_ext.csv'),header=None)
 n_phenotype = mean_relevance_all_state_df.shape[1]
 n_perm = 10000
 
