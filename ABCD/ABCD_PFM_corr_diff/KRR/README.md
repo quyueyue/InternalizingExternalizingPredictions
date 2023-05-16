@@ -4,6 +4,6 @@ This folder contains code used to conduct permutation test whereby the differenc
 
 This analyses focuses on four behavioral categories: Child Internalizing, Child Externalizing, Parent Internalizing and Parent Externalizing.
 
-This function requires an input file named `mean_activation_all_state_df_reordered_int_ext.csv`. This input file contains predictive feature weight vectors associated with child & parent internalizing and externalizing categories, ordered according to [Child Internalizing, Parent Internalizing, Child Externalizing, Parent Externalizing]. 
+This function requires an input file named `mean_activation_all_state_df_reordered_int_ext.csv`. This input file contains predictive feature weight vectors (averaged across all cross-validation folds) associated with child & parent internalizing and externalizing categories, ordered according to [Child Internalizing, Parent Internalizing, Child Externalizing, Parent Externalizing]. 
 
 To conduct this analysis, run `sbatch compute_PFM_corr_perm_int_ext.sh`
