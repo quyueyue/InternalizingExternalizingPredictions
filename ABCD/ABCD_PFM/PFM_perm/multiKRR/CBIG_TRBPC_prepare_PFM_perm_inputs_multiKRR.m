@@ -1,4 +1,4 @@
-function CBIG_TRBPC_prepare_PFM_perm_inputs(feature_files, multiKRR_dir, outdir)
+function CBIG_TRBPC_prepare_PFM_perm_inputs_multiKRR(feature_files, multiKRR_dir, outdir)
 
 % CBIG_TRBPC_prepare_PFM_perm_inputs(feature_files, multiKRR_dir, outdir)
 % 
@@ -23,7 +23,8 @@ function CBIG_TRBPC_prepare_PFM_perm_inputs(feature_files, multiKRR_dir, outdir)
 %
 % Written by Jianzhong Chen and CBIG under MIT license: https://github.com/ThomasYeoLab/CBIG/blob/master/LICENSE.md
 
-project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
+% project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
+project_code_dir = fullfile(getenv('IntExt_DIR'),'ABCD');
 addpath(genpath(project_code_dir));
 
 %% get FC averaged in ech network-pair blocks
