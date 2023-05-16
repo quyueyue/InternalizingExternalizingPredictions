@@ -4,7 +4,7 @@ This folder computes the significance mask for the PFM of our multi-kernel FC re
 
 We implemented 2000 permutations in total. The output files are separated into two subsets of 1000 permutations each.
 
-Suppose all predictive feature weight matrices are stored in `$IntExt_Dir/ABCD_multiKRR_output/` all behavioral and neuroimaging data input files are stored in `$IntExt_Dir/ABCD_data_inputs/`, and the resulting significance mask go to `$IntExt_Dir/ABCD_perm_output/PFM/multiKRR/`,
+Suppose all predictive feature weight matrices are stored in `$IntExt_Dir/ABCD_multiKRR_output/` all behavioral and neuroimaging data input files are stored in `$IntExt_Dir/ABCD_data_inputs/`, and the resulting predictive feature weights go to `$IntExt_Dir/ABCD_perm_output/PFM/multiKRR/`,
 
 
 1. Run `sbatch prepare_PFM_perm_inputs_KRR.sh`
