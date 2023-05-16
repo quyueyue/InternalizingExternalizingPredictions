@@ -1,0 +1,3 @@
+[submodule "CBIG/external_packages/matlab/non_default_packages/Gaussian_Process/gpso_dir"]
+	path = CBIG/external_packages/matlab/non_default_packages/Gaussian_Process/gpso_dir
+	url = https://github.com/jhadida/gpso.git
