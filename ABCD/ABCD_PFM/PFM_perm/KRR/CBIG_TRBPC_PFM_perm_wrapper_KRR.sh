@@ -57,8 +57,8 @@ date >> $LF
 ########## prepare inputs for the permutation
 scripts_dir=`dirname "$(readlink -f "$0")"`
 
-#matlab -nodesktop -nosplash -nodisplay -r " addpath $scripts_dir; CBIG_TRBPC_prepare_PFM_perm_inputs_KRR( \
-#   '$feature_file', '$input_dir', '$outdir'); exit; " >> $LF 2>&1
+matlab -nodesktop -nosplash -nodisplay -r " addpath $scripts_dir; CBIG_TRBPC_prepare_PFM_perm_inputs_KRR( \
+  '$feature_file', '$input_dir', '$outdir'); exit; " >> $LF 2>&1
    
 ########## run permutation jobs
 y_file=$outdir/y_regress.mat
