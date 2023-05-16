@@ -61,8 +61,8 @@ function CBIG_MMP_HCP_KRR(outerFolds, innerFolds, feature_path, featurebase, ...
 % Written by Leon Ooi and CBIG under MIT license: https://github.com/ThomasYeoLab/CBIG/blob/master/LICENSE.md
 
 %% format params that are read in
-addpath(fullfile(getenv('CBIG_CODE_DIR'),'stable_projects', 'predict_phenotypes', ...
-   'Ooi2022_MMP', 'regression', 'utilities'));
+% addpath(fullfile(getenv('CBIG_CODE_DIR'),'stable_projects', 'predict_phenotypes','Ooi2022_MMP', 'regression', 'utilities'));
+addpath(fullfile(getenv('IntExt_DIR'),'HCP', 'regression', 'utilities'));
 % folds
 seed = split;
 seed_name = strcat('seed_', num2str(seed));
