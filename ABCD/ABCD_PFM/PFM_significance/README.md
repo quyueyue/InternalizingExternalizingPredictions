@@ -6,4 +6,4 @@ Suppose that the output directory for the predictive feature weight significance
 
 For single-KRR model, run `sbatch compute_PFM_significance_KRR.sh`
 
-For multi-KRR model, run `compute_PFM_significance_multiKRR.sh`
+For multi-KRR model, run `sbatch compute_PFM_significance_multiKRR.sh`
