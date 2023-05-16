@@ -28,7 +28,7 @@ addpath(genpath(project_code_dir));
 
 %% set common variables
 % repdata_dir = fullfile(getenv('CBIG_REPDATA_DIR'),'stable_projects','predict_phenotypes','ChenTam2021_TRBPC');
-PFM_dir = fullfile(getenv('FYP_DIR'),'FYP_output');
+PFM_dir = fullfile(getenv('IntExt_DIR'),'ABCD_multiKRR_output');
 
 perm_total = 2000;
 perm_per_file = 1000;
