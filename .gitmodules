@@ -4,3 +4,6 @@
 [submodule "CBIG/external_packages/matlab/non_default_packages/Gaussian_Process/gpso"]
 	path = CBIG/external_packages/matlab/non_default_packages/Gaussian_Process/gpso
 	url = https://github.com/jhadida/gpso.git
+[submodule "CBIG/external_packages/matlab/non_default_packages/Gaussian_Process/deck"]
+	path = CBIG/external_packages/matlab/non_default_packages/Gaussian_Process/deck
+	url = https://github.com/jhadida/deck.git
