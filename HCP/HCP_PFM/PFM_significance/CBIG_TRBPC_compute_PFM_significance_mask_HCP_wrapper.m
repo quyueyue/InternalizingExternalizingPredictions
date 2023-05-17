@@ -22,12 +22,13 @@ function hyp_driven_mask = CBIG_TRBPC_compute_PFM_significance_mask_HCP_wrapper(
 %
 % Written by Jianzhong Chen and CBIG under MIT license: https://github.com/ThomasYeoLab/CBIG/blob/master/LICENSE.md
 
-project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
+% project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
+project_code_dir = fullfile(getenv('IntExt_DIR'),'ABCD');
 addpath(genpath(project_code_dir));
 
 %% set common variables
 % repdata_dir = fullfile(getenv('CBIG_REPDATA_DIR'),'stable_projects','predict_phenotypes','ChenTam2021_TRBPC');
-PFM_dir = fullfile(getenv('FYP_DIR'),'HCP','HCP_output_KRR');
+PFM_dir = fullfile(getenv('IntExt_DIR'),'HCP','HCP_output_KRR');
 
 perm_total = 2000;
 perm_per_file = 1000;
