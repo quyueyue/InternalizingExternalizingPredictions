@@ -5,7 +5,7 @@
 #SBATCH --partition psych_day
 
 
-perm_dir="$IntExt_Dir/HCP/HCP_perm_output/PFM/"
+perm_dir="$IntExt_DIR/HCP/HCP_perm_output/PFM/"
 outdir=${perm_dir}
 scripts_dir=`dirname "$(readlink -f "$0")"`
 
