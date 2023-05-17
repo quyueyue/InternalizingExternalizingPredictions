@@ -9,7 +9,7 @@
 # outdir="/gpfs/milgram/project/holmes/yq222/FYP/permutation_2262/KRR/PFM/"
 feature_file=$IntExt_Dir/ABCD/ABCD_data_inputs/FC_subjects_all_task_all_score_rs_bp_sm6.mat
 input_dir=$IntExt_Dir/ABCD/ABCD_KRR_output/
-outdir=$IntExt_Dir/ABCD/ABCD_perm_output/PFM_perm/KRR/
+outdir=$IntExt_Dir/ABCD/ABCD_perm_output/PFM/KRR/
 
 
 ########## prepare inputs for the permutation
