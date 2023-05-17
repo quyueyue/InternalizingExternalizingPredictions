@@ -14,7 +14,7 @@ import statsmodels
 from statsmodels.stats.multitest import fdrcorrection
 
 # CHANGE: the directory which contains mean_activation_all_state_df_reordered_int_ext.csv
-multiKRR_output_dir = '${IntExt_Dir}/ABCD_KRR_output/'
+multiKRR_output_dir = '${IntExt_Dir}/ABCD/ABCD_multiKRR_output/'
 mean_relevance_all_state_df = pd.read_csv(os.path.join(multiKRR_output_dir,'mean_activation_all_state_df_reordered_int_ext.csv'),header=None)
 n_phenotype = mean_relevance_all_state_df.shape[1]
 n_perm = 10000
