@@ -28,8 +28,9 @@ function p_value = CBIG_MMP_compute_HCP_permutation_corr_p_value(ref_dir, behav_
 % Written by Leon Ooi and CBIG under MIT license: https://github.com/ThomasYeoLab/CBIG/blob/master/LICENSE.md
 
 %% add utilities path
-addpath(fullfile(getenv('CBIG_CODE_DIR'),'stable_projects', 'predict_phenotypes', ...
-   'Ooi2022_MMP', 'regression', 'HCP', 'utilities')) 
+% addpath(fullfile(getenv('CBIG_CODE_DIR'),'stable_projects', 'predict_phenotypes', ...
+%    'Ooi2022_MMP', 'regression', 'HCP', 'utilities')) 
+addpath(fullfile(getenv('IntExt_DIR'), 'HCP', 'regression', 'utilities')) 
 
 %% compare with permutation: MODIFY HERE IF YOU CHANGED FOLDS / PERMUTATIONS
 perm_per_file = 2000;
@@ -54,5 +55,6 @@ for i = 1:length(behav_ind)
     p_value(i) = (1+N_worse)/(1+seeds_total*perm_per_file);
 end
 save(fullfile(perm_dir,'HCP_perm_pval.mat'),'p_value');
-rmpath(fullfile(getenv('CBIG_CODE_DIR'),'stable_projects', 'predict_phenotypes', ...
-   'Ooi2022_MMP', 'regression', 'HCP', 'utilities')) 
+% rmpath(fullfile(getenv('CBIG_CODE_DIR'),'stable_projects', 'predict_phenotypes', ...
+%    'Ooi2022_MMP', 'regression', 'HCP', 'utilities')) 
+rmpath(fullfile(getenv('IntExt_DIR'),'HCP','regression','utilities'))
