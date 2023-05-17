@@ -5,4 +5,4 @@
 #SBATCH --mem=30G
 #SBATCH --partition psych_week
 
-bash CBIG_TRBPC_PFM_perm_wrapper_HCP.sh -i /gpfs/milgram/project/holmes/yq222/FYP/HCP/HCP_output_KRR/KRR_features_rs_752/ -f /gpfs/milgram/project/holmes/yq222/FYP/HCP/FC_data/features_rs_752.mat -n 1000 -t 2000 -o /gpfs/milgram/project/holmes/yq222/FYP/HCP/permutations/PFM_KRR/ -p /gpfs/milgram/project/holmes/yq222/FYP/HCP/HCP_alldata.csv -l /gpfs/milgram/project/holmes/yq222/FYP/HCP/HCP_752_subjects.txt -c Milgram
+bash CBIG_TRBPC_PFM_perm_wrapper_HCP.sh -i $IntExt_DIR/HCP/HCP_output_KRR/KRR_features_rs_752/ -f $IntExt_DIR/HCP/HCP_data_inputs/features_rs_752.mat -n 1000 -t 2000 -o $IntExt_DIR/HCP/HCP_perm_output/PFM/ -p $IntExt_DIR/HCP/HCP_data_inputs/HCP_alldata.csv -l $IntExt_DIR/HCP/HCP_data_inputs/HCP_752_subjects.txt -c Milgram
