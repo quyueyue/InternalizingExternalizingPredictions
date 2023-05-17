@@ -67,14 +67,13 @@ if [ $model == "singleKRR" ]; then
 	matlab -nodesktop -nosplash -nodisplay -r " try addpath('$script_dir'); CBIG_MMP_HCP_compute_singleKRR_perm_stats( \
 	'$model_dir', '$outstem', $y_idx, $perm_seed_start, $N_perm, '$family_list', \
 	'$subject_list', '$outdir'); catch ME; display(ME.message); end; exit; " >> $LF 2>&1
+# elif [ $model == "multiKRR" ]; then
+# 	matlab -nodesktop -nosplash -nodisplay -r " try addpath('$script_dir'); CBIG_MMP_HCP_compute_multiKRR_perm_stats( \
+# 	'$model_dir', '$outstem', $y_idx, $perm_seed_start, $N_perm, '$family_list', \
+# 	'$subject_list', '$outdir'); catch ME; display(ME.message); end; exit; " >> $LF 2>&1
 
-elif [ $model == "multiKRR" ]; then
-	matlab -nodesktop -nosplash -nodisplay -r " try addpath('$script_dir'); CBIG_MMP_HCP_compute_multiKRR_perm_stats( \
-	'$model_dir', '$outstem', $y_idx, $perm_seed_start, $N_perm, '$family_list', \
-	'$subject_list', '$outdir'); catch ME; display(ME.message); end; exit; " >> $LF 2>&1
-
-elif [ $model == "stacking" ]; then  
-	matlab -nodesktop -nosplash -nodisplay -r " try addpath('$script_dir'); CBIG_MMP_HCP_compute_stacking_perm_stats( \
-	'$singlekrr_outdir', '$model_dir', '$outstem', $feature_mat_cells, $y_idx, $perm_seed_start, $N_perm, '$family_list', \
-	'$subject_list', '$outdir'); catch ME; display(ME.message); end; exit; " >> $LF 2>&1
+# elif [ $model == "stacking" ]; then  
+# 	matlab -nodesktop -nosplash -nodisplay -r " try addpath('$script_dir'); CBIG_MMP_HCP_compute_stacking_perm_stats( \
+# 	'$singlekrr_outdir', '$model_dir', '$outstem', $feature_mat_cells, $y_idx, $perm_seed_start, $N_perm, '$family_list', \
+# 	'$subject_list', '$outdir'); catch ME; display(ME.message); end; exit; " >> $LF 2>&1
 fi
