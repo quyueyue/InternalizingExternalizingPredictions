@@ -8,7 +8,7 @@
 
 scripts_dir=`dirname "$(readlink -f "$0")"`
 
-perm_dir=$IntExt_Dir/ABCD_PFM_perm_output/PFM/multiKRR/
+perm_dir=$IntExt_Dir/ABCD/ABCD_PFM_perm_output/PFM/multiKRR/
 
 outdir=${perm_dir}
 
