@@ -4,5 +4,5 @@ This folder contains code used to generate predictive feature weight significanc
 
 Suppose that the output directory for the predictive feature weight significance mask is the same as PFM permutation results,
 
-Run `sbatch compute_PFM_significance_KRR.sh`
+Run `sbatch compute_PFM_significance.sh`
 
