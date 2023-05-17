@@ -1,6 +1,6 @@
 # Permutation testing for predictive feature weight in ABCD analyses
 
-This folder computes the significance mask for the PFM of our single-kernel FC regression model.
+Code in this folder conducts permutation testing for the PFM of our single-kernel FC regression model.
 
 We implemented 2000 permutations in total. The output files are separated into two subsets of 1000 permutations each.
 
