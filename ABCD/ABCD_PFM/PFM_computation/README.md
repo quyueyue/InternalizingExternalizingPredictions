@@ -1,4 +1,4 @@
-# Predictive-Feature Matrices (PFM)
+# Predictive-Feature Matrices (PFM) in ABCD analyses
 
 This folder contains functions to compute the predictive-feature matrices for both single- and multi-KRR models. 
 
