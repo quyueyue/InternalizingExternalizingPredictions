@@ -6,4 +6,4 @@ We used an approach from Haufe and colleagues (2014) to transform predictive fea
 
 Suppose all data input files are in `$IntExt_DIR/HCP/HCP_data_inputs`, all single-KRR model outputs are in `$IntExt_DIR/HCP/HCP_output_KRR/KRR_features_rs_752/`, and all predictive feature weight outputs go to the same output directory as model outputs,
 
-Run `bash CBIG_TRBPC_PFM_wrapper_HCP.sh -i $IntExt_DIR/HCP/HCP_output_KRR/KRR_features_rs_752/ -f /gpfs/milgram/project/holmes/yq222/FYP/HCP/FC_data/features_rs_752.mat -n 18 -o /gpfs/milgram/project/holmes/yq222/FYP/HCP/HCP_output_KRR/ -m KRR -c Milgram`
+Run `bash CBIG_TRBPC_PFM_wrapper_HCP.sh -i $IntExt_DIR/HCP/HCP_output_KRR/KRR_features_rs_752/ -f $IntExt_DIR/HCP/HCP_data_inputs/features_rs_752.mat -n 18 -o $IntExt_DIR/HCP/HCP_output_KRR/KRR_features_rs_752/ -m KRR -c Milgram`
