@@ -36,7 +36,8 @@ function CBIG_TRBPC_compute_KRR_PFM_HCP( feature_file, KRR_dir, score_ind, outdi
 %
 % Written by Jianzhong Chen and CBIG under MIT license: https://github.com/ThomasYeoLab/CBIG/blob/master/LICENSE.md
 
-project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
+% project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
+project_code_dir = fullfile(getenv('IntExt_DIR'),'ABCD');
 paths = genpath(project_code_dir);
 addpath(paths)
 
