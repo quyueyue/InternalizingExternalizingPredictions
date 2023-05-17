@@ -13,8 +13,8 @@ from scipy import stats
 import statsmodels
 from statsmodels.stats.multitest import fdrcorrection
 
-HCP_dir = '/gpfs/milgram/project/holmes/yq222/FYP/HCP/'
-HCP_output_dir = '/gpfs/milgram/project/holmes/yq222/FYP/HCP/HCP_output_KRR/'
+# CHANGE: the directory which contains HCP_mean_activation_all_state_df_reordered_int_ext.csv
+HCP_output_dir = $IntExt_DIR/HCP/HCP_output_KRR/KRR_features_rs_752
 mean_relevance_all_state_df = pd.read_csv(os.path.join(HCP_output_dir,'HCP_mean_activation_all_state_df_reordered_int_ext.csv'),header=None)
 
 n_phenotype = mean_relevance_all_state_df.shape[1]
