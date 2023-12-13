@@ -77,7 +77,7 @@ do
             errfile=${outdir}/${seed}/job_err_out/PFM_perm_start_${perm_seed_start}.err
             outfile=${outdir}/${seed}/job_err_out/PFM_perm_start_${perm_seed_start}.out
             cmd="${scripts_dir}/CBIG_TRBPC_PFM_perm_job_HCP.sh $FC_mean_file $y_file $krr_folds $perm_seed_start $perm_num $outdir $family_list $subject_list $seed_idx"
-        sbatch --job-name=PFM_perm --partition=week --time=7-00:00:00 --mem-per-cpu=30G --cpus-per-task=2 --wrap="${scripts_dir}/CBIG_TRBPC_PFM_perm_job_HCP.sh $FC_mean_file $y_file $krr_folds $perm_seed_start $perm_num $outdir $family_list $subject_list $seed_idx"
+        sbatch --job-name=PFM_perm --partition=psych_day --time=24:00:00 --mem-per-cpu=30G --wrap="${scripts_dir}/CBIG_TRBPC_PFM_perm_job_HCP.sh $FC_mean_file $y_file $krr_folds $perm_seed_start $perm_num $outdir $family_list $subject_list $seed_idx"
         fi
     done
 done

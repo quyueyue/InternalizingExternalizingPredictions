@@ -24,16 +24,18 @@ function hyp_driven_mask = CBIG_TRBPC_compute_PFM_significance_mask_HCP_wrapper(
 
 % project_code_dir = fullfile(getenv('CBIG_CODE_DIR'),'stable_projects','predict_phenotypes', 'ChenTam2022_TRBPC');
 project_code_dir = fullfile(getenv('IntExt_DIR'),'ABCD');
+HCP_project_code_dir = fullfile(getenv('IntExt_DIR'),'HCP');
 addpath(genpath(project_code_dir));
+addpath(genpath(HCP_project_code_dir));
 
 %% set common variables
 % repdata_dir = fullfile(getenv('CBIG_REPDATA_DIR'),'stable_projects','predict_phenotypes','ChenTam2021_TRBPC');
-PFM_dir = fullfile(getenv('IntExt_DIR'),'HCP','HCP_output_KRR','KRR_features_rs_752');
+PFM_dir = fullfile(getenv('IntExt_DIR'),'HCP','HCP_output_KRR');
 
 perm_total = 2000;
-perm_per_file = 1000;
+perm_per_file = 2000;
 N_score = 18;
-N_cat = 4; % number of hypothesis-driven clusters
+N_cat = 2; % number of hypothesis-driven clusters
 N_state = 1;
 
 %% compute average PFM in each network block
@@ -46,7 +48,7 @@ end
 
 % %% data-driven behavior categories
 % disp('-------- compute p-value for data-driven behavior categories --------')
-% behav_cat = cell(N_cat,1);
+behav_cat = cell(N_cat,1);
 % behav_cat{1} = [9:18, 20:21, 31:36]; % data-driven cognition
 % behav_cat{2} = [1, 3:6, 23]; % data-driven mental health
 % behav_cat{3} = [19, 22, 24:29]; % data-driven personality
@@ -54,10 +56,12 @@ end
 
 %% hypothesis-driven behavior categories
 disp('-------- compute p-value for hypothesis-driven behavior categories --------')
-behav_cat{1} = [2:3];
-behav_cat{2} = [9]; % adult thought problem
-behav_cat{3} = [10:11,13:14]; % adult externalizing
-behav_cat{4} = [15:18];
+% behav_cat{1} = [2:3];
+% behav_cat{2} = [9]; % adult thought problem
+% behav_cat{3} = [10:11,13:14]; % adult externalizing
+% behav_cat{4} = [15:18];
+behav_cat{1} = 1;
+behav_cat{2} = 10;
 
 p_value_hyp = CBIG_TRBPC_compute_PFM_p_value(PFM_network, perm_dir, behav_cat, perm_per_file, perm_total);
 
