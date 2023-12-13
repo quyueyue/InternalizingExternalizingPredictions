@@ -1,4 +1,0 @@
-gender
-interview_age
-rs_mean_FD
-rs_mean_DVARS
