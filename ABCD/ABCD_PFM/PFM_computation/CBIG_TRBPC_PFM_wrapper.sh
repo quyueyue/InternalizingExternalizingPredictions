@@ -64,6 +64,6 @@ do
 
     else
         outfile=${outdir}/job_err_out/${model}_PFM_score${score_ind}.out
-        sbatch --job-name=${testLPname} --partition=week --time=20:00:00 --mem-per-cpu=24G --wrap="${scripts_dir}/CBIG_TRBPC_PFM_job.sh $input_dir $feature_file $sub_fold $score_ind $outdir $model"
+        sbatch --job-name=${testLPname} --partition=psych_week --time=20:00:00 --mem-per-cpu=24G --wrap="${scripts_dir}/CBIG_TRBPC_PFM_job.sh $input_dir $feature_file $sub_fold $score_ind $outdir $model"
     fi
 done

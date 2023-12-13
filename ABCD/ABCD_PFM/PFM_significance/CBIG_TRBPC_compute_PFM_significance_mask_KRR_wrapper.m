@@ -28,14 +28,14 @@ addpath(genpath(project_code_dir));
 
 %% set common variables
 % repdata_dir = fullfile(getenv('CBIG_REPDATA_DIR'),'stable_projects','predict_phenotypes','ChenTam2021_TRBPC');
-PFM_dir = fullfile(getenv('IntExt_DIR'),'ABCD_KRR_output');
+PFM_dir = fullfile(getenv('IntExt_DIR'),'ABCD_output_rs_KRR_5260');
 
 perm_total = 2000;
-perm_per_file = 1000;
-N_score = 33;
-N_cat = 8; % number of hypothesis-driven clusters
+perm_per_file = 2000;
+N_score = 7;
+N_cat = 2; % number of hypothesis-driven clusters
 N_state = 1;
-
+behav_cat = cell(N_cat,1);
 %% compute average PFM in each network block
 disp('-------- compute average PFM in each network block --------')
 if ~exist(fullfile(PFM_dir,'PFM_network_mean.mat'),'file')
@@ -44,24 +44,11 @@ else
     load(fullfile(PFM_dir,'PFM_network_mean.mat'),'PFM_network');
 end
 
-% %% data-driven behavior categories
-% disp('-------- compute p-value for data-driven behavior categories --------')
-% behav_cat = cell(N_cat,1);
-% behav_cat{1} = [9:18, 20:21, 31:36]; % data-driven cognition
-% behav_cat{2} = [1, 3:6, 23]; % data-driven mental health
-% behav_cat{3} = [19, 22, 24:29]; % data-driven personality
-% p_value_data = CBIG_TRBPC_compute_PFM_p_value(PFM_network, perm_dir, behav_cat, perm_per_file, perm_total);
-
 %% hypothesis-driven behavior categories
 disp('-------- compute p-value for hypothesis-driven behavior categories --------')
-behav_cat{1} = [19:21,28:29,22,30]; % child internalizing
-behav_cat{2} = [9,1,2,11,12,14,3,13]; % parent internalizing
-behav_cat{3} = [4]; % parent thought problem
-behav_cat{4} = [24]; % child thought problem
-behav_cat{5} = [23,26,27,32:33]; % child externalizing
-behav_cat{6} = [10,16,6:8]; % parent externalizing
-behav_cat{7} = [25,31]; % child adhd
-behav_cat{8} = [5,15,17:18]; % parent adhd
+
+behav_cat{1} = 1; % child internalizing
+behav_cat{2} = 5; % child externalizing
 p_value_hyp = CBIG_TRBPC_compute_PFM_p_value(PFM_network, perm_dir, behav_cat, perm_per_file, perm_total);
 
 [~,thr] = FDR(p_value_hyp(:),0.05);

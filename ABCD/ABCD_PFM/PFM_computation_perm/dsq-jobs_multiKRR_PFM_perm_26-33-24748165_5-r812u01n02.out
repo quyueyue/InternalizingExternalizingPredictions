@@ -1,0 +1,145 @@
+
+--------------------------------------------------------------------------------
+              Bus error detected at Thu Aug 17 13:54:50 2023 -0400
+--------------------------------------------------------------------------------
+
+Configuration:
+  Crash Decoding           : Disabled - No sandbox or build area path
+  Crash Mode               : continue (default)
+  Default Encoding         : UTF-8
+  Deployed                 : false
+  GNU C Library            : 2.17 stable
+  Graphics Driver          : Unknown software 
+  Java Version             : Java 1.8.0_152-b16 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
+  MATLAB Architecture      : glnxa64
+  MATLAB Entitlement ID    : 880641
+  MATLAB Root              : /gpfs/milgram/apps/hpc.rhel7/software/MATLAB/2018b
+  MATLAB Version           : 9.5.0.944444 (R2018b)
+  OpenGL                   : software
+  Operating System         : "Red Hat Enterprise Linux Server release 7.9 (Maipo)"
+  Process ID               : 31280
+  Processor ID             : x86 Family 6 Model 79 Stepping 1, GenuineIntel
+  Session Key              : 7f84d60f-e50b-47d7-8f9a-578fb6e38651
+  Static TLS mitigation    : Disabled: Unable to open display
+  Window System            : No active display
+
+Fault Count: 2
+
+
+Abnormal termination
+
+Register State (from fault):
+  RAX = 00002b76bc00900d  RBX = 0000000000000008
+  RCX = 000000010014ef48  RDX = 0000000000000000
+  RSP = 00002b769a1d14e8  RBP = 00002b769a1d1530
+  RSI = 00002b769a1d14f0  RDI = 00002b76bc0091f8
+
+   R8 = 00000000d0501098   R9 = 0000000020004b62
+  R10 = 00002b735023be38  R11 = 00000000d0501048
+  R12 = 0000000000000000  R13 = 0000000000000014
+  R14 = 00002b769a1d1650  R15 = 00002b76bc009000
+
+  RIP = 00002b734a723540  EFL = 0000000000010246
+
+   CS = 0033   FS = 0000   GS = 0000
+
+Stack Trace (from fault):
+[  0] 0x00002b734a723540 /gpfs/milgram/apps/hpc.rhel7/software/MATLAB/2018b/sys/java/jre/glnxa64/jre/lib/amd64/libjava.so+00062784 Java_java_io_FileInputStream_available0+00000000
+[  1] 0x00002b73507bd1c8                                   <unknown-module>+00000000
+
+
+Abnormal termination
+
+Register State (from fault):
+  RAX = 00000000d0c90828  RBX = 0000000126a61130
+  RCX = 0000000000000000  RDX = 00000000f515c018
+  RSP = 00002b7313ff7fd8  RBP = 00002b7313ff8020
+  RSI = 00002b7313ff7fe0  RDI = 00002b73197af1f8
+
+   R8 = 00000000d0c909b0   R9 = 00000000d0c90828
+  R10 = 00002b73501dc478  R11 = 0000000000000000
+  R12 = 0000000000000000  R13 = 00000000d02a4280
+  R14 = 0000000100007528  R15 = 00002b73197af000
+
+  RIP = 00002b734a7256c0  EFL = 0000000000010246
+
+   CS = 0033   FS = 0000   GS = 0000
+
+Stack Trace (from fault):
+[  0] 0x00002b734a7256c0 /gpfs/milgram/apps/hpc.rhel7/software/MATLAB/2018b/sys/java/jre/glnxa64/jre/lib/amd64/libjava.so+00071360 Java_java_lang_String_intern+00000000
+[  1] 0x00002b73503e20ac                                   <unknown-module>+00000000
+
+
+--------------------------------------------------------------------------------
+              Bus error detected at Thu Aug 17 13:54:50 2023 -0400
+--------------------------------------------------------------------------------
+
+Configuration:
+  Crash Decoding           : Disabled - No sandbox or build area path
+  Crash Mode               : continue (default)
+  Default Encoding         : UTF-8
+  Deployed                 : false
+  GNU C Library            : 2.17 stable
+  Graphics Driver          : Unknown software 
+  Java Version             : Java 1.8.0_152-b16 with Oracle Corporation Java HotSpot(TM) 64-Bit Server VM mixed mode
+  MATLAB Architecture      : glnxa64
+  MATLAB Entitlement ID    : 880641
+  MATLAB Root              : /gpfs/milgram/apps/hpc.rhel7/software/MATLAB/2018b
+  MATLAB Version           : 9.5.0.944444 (R2018b)
+  OpenGL                   : software
+  Operating System         : "Red Hat Enterprise Linux Server release 7.9 (Maipo)"
+  Process ID               : 31280
+  Processor ID             : x86 Family 6 Model 79 Stepping 1, GenuineIntel
+  Session Key              : 7f84d60f-e50b-47d7-8f9a-578fb6e38651
+  Static TLS mitigation    : Disabled: Unable to open display
+  Window System            : No active display
+
+Fault Count: 2
+
+
+Abnormal termination
+
+Register State (from fault):
+  RAX = 00002b76bc00900d  RBX = 0000000000000008
+  RCX = 000000010014ef48  RDX = 0000000000000000
+  RSP = 00002b769a1d14e8  RBP = 00002b769a1d1530
+  RSI = 00002b769a1d14f0  RDI = 00002b76bc0091f8
+
+   R8 = 00000000d0501098   R9 = 0000000020004b62
+  R10 = 00002b735023be38  R11 = 00000000d0501048
+  R12 = 0000000000000000  R13 = 0000000000000014
+  R14 = 00002b769a1d1650  R15 = 00002b76bc009000
+
+  RIP = 00002b734a723540  EFL = 0000000000010246
+
+   CS = 0033   FS = 0000   GS = 0000
+
+Stack Trace (from fault):
+[  0] 0x00002b734a723540 /gpfs/milgram/apps/hpc.rhel7/software/MATLAB/2018b/sys/java/jre/glnxa64/jre/lib/amd64/libjava.so+00062784 Java_java_io_FileInputStream_available0+00000000
+[  1] 0x00002b73507bd1c8                                   <unknown-module>+00000000
+
+
+Abnormal termination
+
+Register State (from fault):
+  RAX = 00000000d0c90828  RBX = 0000000126a61130
+  RCX = 0000000000000000  RDX = 00000000f515c018
+  RSP = 00002b7313ff7fd8  RBP = 00002b7313ff8020
+  RSI = 00002b7313ff7fe0  RDI = 00002b73197af1f8
+
+   R8 = 00000000d0c909b0   R9 = 00000000d0c90828
+  R10 = 00002b73501dc478  R11 = 0000000000000000
+  R12 = 0000000000000000  R13 = 00000000d02a4280
+  R14 = 0000000100007528  R15 = 00002b73197af000
+
+  RIP = 00002b734a7256c0  EFL = 0000000000010246
+
+   CS = 0033   FS = 0000   GS = 0000
+
+** This crash report has been saved to disk as /tmp/matlab_crash_dump.31280-2 **
+
+
+** This crash report has been saved to disk as 
+MATLAB is exiting because of fatal error
+/tmp/matlab_crash_dump.31280-1/gpfs/milgram/pi/holmes/yq222/FYP/ABCD/ABCD_PFM/PFM_computation_perm/CBIG_TRBPC_KRR_PFM_perm_job.sh: line 20: 31280 Killed                  matlab -nodesktop -nosplash -nodisplay -r " addpath $scripts_dir; CBIG_TRBPC_compute_${model}_PFM_perm_stats('${input_dir}','${feature_file}','${outstem}','${score}',${perm_start},${N_per_job},'${group}','${outdir}'); exit; " >> $LF
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=24776110.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

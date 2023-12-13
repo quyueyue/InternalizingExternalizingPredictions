@@ -114,7 +114,6 @@ for i = 1:N_fold
     end
     PFM_all_folds(:,i) = cov_matrix(features_train',y_predicted_train)/std(y_predicted_train);
 end
-
 save([outdir '/PFM_score' num2str(score_ind) '_all_folds.mat'],'PFM_all_folds');
 rmpath(paths)
 end

@@ -88,72 +88,68 @@ end
 PFM_all_folds = zeros(N_edge*num_kernel,N_perm);
 
 for i = 1:N_fold
-    disp(['fold ' num2str(i)]);
-    % load target variable and selected hyperparameters
-    load([multiKRR_dir '/optimal_acc/fold_' num2str(i) '/acc_all_score.mat']);
-    load([multiKRR_dir '/y/fold_' num2str(i) '/y_regress_all_score.mat']);
-    y_resid = y_resid(:,score_ind);
-    
-    lambda_vect = opt_hyp{score_ind};
-    test_ind = sub_fold(i).fold_index;
-    train_ind = ~test_ind;
-    
-    FSM_train = FSM_all(train_ind,train_ind,:);
-%     FSM_pred = FSM_all(test_ind,train_ind,:);
-    
-    % number of subjects
-    num_train_subj = size(FSM_train,1);
-%     num_test_subj = size(FSM_pred,1);
-    
-    % compute intermediate matrices
-%     FSM_tmp = reshape(FSM_pred,num_test_subj, num_train_subj*num_kernel);
-    K_tmp = repmat(reshape(FSM_train,num_train_subj,num_train_subj*num_kernel),...
-        num_kernel,1);
-    kr_eye_tmp = eye(num_kernel*num_train_subj);
-    kr_lambda_tmp = reshape(repmat(lambda_vect,num_train_subj,1),...
-        num_train_subj*num_kernel,1);
-    kr_tmp = bsxfun(@times, kr_eye_tmp, kr_lambda_tmp);
-    K_tmp = K_tmp + kr_tmp;
-    
-    % training
-    X = ones(num_train_subj*num_kernel,1);
-    inv_K_tmp = inv(K_tmp);
-    beta_pre = (X' * (inv_K_tmp * X)) \ X' * inv_K_tmp;
-    for j = 1:N_perm
-        % permute y
-        rng(j+perm_seed_start-1);
-        y_perm = y_resid;
-        for k = 1:N_site
-            y_tmp = y_perm(site_ind == k);
-            y_tmp = y_tmp(randperm(length(y_tmp)));
-            y_perm(site_ind == k) = y_tmp;
-        end
-        y_train_resid = y_perm(train_ind);
+    if(~exist(['/home/yq222/scratch60/PFM_score' num2str(score_ind) '_fold' num2str(i) '.mat'], 'file'))
+        disp(['fold ' num2str(i)]);
+        % load target variable and selected hyperparameters
+        load([multiKRR_dir '/optimal_acc/fold_' num2str(i) '/acc_all_score.mat']);
+        load([multiKRR_dir '/y/fold_' num2str(i) '/y_regress_all_score.mat']);
+        y_resid = y_resid(:,score_ind);
         
-        % prediction
-        y_tmp = repmat(y_train_resid,num_kernel,1);
-        beta = beta_pre * y_tmp;
-        alpha = inv_K_tmp * (y_tmp - X * beta);
-        y_predicted = reshape(FSM_train,num_train_subj,...
-        num_train_subj*num_kernel)*alpha + ones(num_train_subj,1) .* beta;
-        % compute predictive-feature matrices
-        features_train = zeros(N_edge*num_kernel,num_train_subj);
-        for curr_kernel = 1:num_kernel
-            features_train(1+(curr_kernel-1)*N_edge:curr_kernel*N_edge,:)...
-                = features_all(:,train_ind,curr_kernel);
+        lambda_vect = opt_hyp{score_ind};
+        test_ind = sub_fold(i).fold_index;
+        train_ind = ~test_ind;
+        
+        FSM_train = FSM_all(train_ind,train_ind,:);
+    %     FSM_pred = FSM_all(test_ind,train_ind,:);
+        
+        % number of subjects
+        num_train_subj = size(FSM_train,1);
+    %     num_test_subj = size(FSM_pred,1);
+        
+        % compute intermediate matrices
+    %     FSM_tmp = reshape(FSM_pred,num_test_subj, num_train_subj*num_kernel);
+        K_tmp = repmat(reshape(FSM_train,num_train_subj,num_train_subj*num_kernel),...
+            num_kernel,1);
+        kr_eye_tmp = eye(num_kernel*num_train_subj);
+        kr_lambda_tmp = reshape(repmat(lambda_vect,num_train_subj,1),...
+            num_train_subj*num_kernel,1);
+        kr_tmp = bsxfun(@times, kr_eye_tmp, kr_lambda_tmp);
+        K_tmp = K_tmp + kr_tmp;
+        
+        % training
+        X = ones(num_train_subj*num_kernel,1);
+        inv_K_tmp = inv(K_tmp);
+        beta_pre = (X' * (inv_K_tmp * X)) \ X' * inv_K_tmp;
+        parfor j = 1:N_perm
+            % permute y
+            rng(j+perm_seed_start-1);
+            y_perm = y_resid;
+            for k = 1:N_site
+                y_tmp = y_perm(site_ind == k);
+                y_tmp = y_tmp(randperm(length(y_tmp)));
+                y_perm(site_ind == k) = y_tmp;
+            end
+            y_train_resid = y_perm(train_ind);
+            
+            % prediction
+            y_tmp = repmat(y_train_resid,num_kernel,1);
+            beta = beta_pre * y_tmp;
+            alpha = inv_K_tmp * (y_tmp - X * beta);
+            y_predicted = reshape(FSM_train,num_train_subj,...
+            num_train_subj*num_kernel)*alpha + ones(num_train_subj,1) .* beta;
+            % compute predictive-feature matrices
+            features_train = zeros(N_edge*num_kernel,num_train_subj);
+            for curr_kernel = 1:num_kernel
+                features_train(1+(curr_kernel-1)*N_edge:curr_kernel*N_edge,:)...
+                    = features_all(:,train_ind,curr_kernel);
+            end
+            PFM_all_folds(:,j) = PFM_all_folds(:,j) + (bsxfun(@minus,features_train',mean(features_train'))'*bsxfun(@minus,y_predicted,mean(y_predicted))/(size(features_train',1)-1))/std(y_predicted);
         end
-        PFM_all_folds(:,j) = PFM_all_folds(:,j) + cov_matrix(features_train',y_predicted)/std(y_predicted);
-        save(['/home/yq222/scratch60/PFM_score' num2str(score_ind) '_all_folds.mat'],'PFM_all_folds');
-     end
+        save(['/home/yq222/scratch60/PFM_score' num2str(score_ind) '_fold' num2str(i) '.mat'],'PFM_all_folds','-v7.3');
+    end
 end
 % average over 120 cv folds
 PFM_mean_fold=PFM_all_folds/120;
-save([outdir '/PFM_score' num2str(score_ind) '_mean_fold.mat'],'PFM_mean_fold');
+save([outdir '/PFM_score' num2str(score_ind) '_mean_fold.mat'],'PFM_mean_fold','-v7.3');
 end
 
-function cov_xy = cov_matrix(x,y)
-% x: N*K1 matrix, N is # observation, K is # variables
-% y: N*K2 matrix, N is # observation, K is # variables
-% cov_xy: K1*K2 covariance matrix
-cov_xy = bsxfun(@minus,x,mean(x))'*bsxfun(@minus,y,mean(y))/(size(x,1)-1);
-end

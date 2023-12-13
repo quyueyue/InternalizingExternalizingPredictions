@@ -4,11 +4,11 @@
 #SBATCH --mem=20G
 #SBATCH --partition psych_day
 
-# perm_dir="/gpfs/milgram/project/holmes/yq222/FYP/permutation_2262/PFM/"
+perm_dir="/gpfs/milgram/project/holmes/yq222/FYP/permutation_2262/multiKRR/PFM/"
 
 scripts_dir=`dirname "$(readlink -f "$0")"`
 
-perm_dir=$IntExt_Dir/ABCD/ABCD_perm_output/PFM/multiKRR/
+#perm_dir=$IntExt_Dir/ABCD/ABCD_perm_output/PFM/multiKRR/
 
 outdir=${perm_dir}
 

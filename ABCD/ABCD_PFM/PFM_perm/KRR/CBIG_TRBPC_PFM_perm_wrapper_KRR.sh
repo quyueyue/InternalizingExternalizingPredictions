@@ -57,8 +57,8 @@ date >> $LF
 ########## prepare inputs for the permutation
 scripts_dir=`dirname "$(readlink -f "$0")"`
 
-matlab -nodesktop -nosplash -nodisplay -r " addpath $scripts_dir; CBIG_TRBPC_prepare_PFM_perm_inputs_KRR( \
-  '$feature_file', '$input_dir', '$outdir'); exit; " >> $LF 2>&1
+#matlab -nodesktop -nosplash -nodisplay -r " addpath $scripts_dir; CBIG_TRBPC_prepare_PFM_perm_inputs_KRR( \
+#  '$feature_file', '$input_dir', '$outdir'); exit; " >> $LF 2>&1
    
 ########## run permutation jobs
 y_file=$outdir/y_regress.mat
@@ -78,7 +78,7 @@ do
 #	cmd="$scripts_dir/CBIG_TRBPC_PFM_perm_job.sh"
 #	cmd="$cmd  $FC_mean_file $y_file $krr_folds $perm_seed_start $perm_num $outdir $group"
         cmd="${scripts_dir}/CBIG_TRBPC_PFM_perm_job_KRR.sh $FC_mean_file $y_file $krr_folds $perm_seed_start $perm_num $outdir $group"
-    sbatch --job-name=PFM_perm --partition=day --time=12:00:00 --mem-per-cpu=16G --wrap="${scripts_dir}/CBIG_TRBPC_PFM_perm_job_KRR.sh $FC_mean_file $y_file $krr_folds $perm_seed_start $perm_num $outdir $group"
+    sbatch --job-name=PFM_perm --partition=psych_day --time=12:00:00 --mem-per-cpu=16G --wrap="${scripts_dir}/CBIG_TRBPC_PFM_perm_job_KRR.sh $FC_mean_file $y_file $krr_folds $perm_seed_start $perm_num $outdir $group"
 #	${CBIG_CODE_DIR}/setup/CBIG_pbsubmit -walltime 12:00:0 -mem 16gb -joberr ${errfile} -jobout ${outfile} \
 #            -cmd "${cmd}" -name PFM_perm
     fi

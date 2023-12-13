@@ -78,7 +78,7 @@ do
 #            cmd="$scripts_dir/CBIG_TRBPC_KRR_perm_job.sh"
 #            cmd="${cmd} ${model} ${input_dir} ${outstem} ${score} ${perm_start} ${N_per_job} ${group} ${outdir}"
             cmd="${scripts_dir}/CBIG_TRBPC_KRR_PFM_perm_job.sh ${model} ${input_dir} ${feature_file} ${outstem} ${score} ${perm_start} ${N_per_job} ${group} ${outdir}"
-            sbatch --job-name=${model}_PFM --partition=psych_week --time=7-00:00:00 --mem-per-cpu=50G --wrap="${scripts_dir}/CBIG_TRBPC_KRR_PFM_perm_job.sh ${model} ${input_dir} ${feature_file} ${outstem} ${score} ${perm_start} ${N_per_job} ${group} ${outdir}"
+            sbatch --job-name=${model}_PFM --partition=psych_day --time=24:00:00 --mem-per-cpu=30G --cpus-per-task=8 --wrap="${scripts_dir}/CBIG_TRBPC_KRR_PFM_perm_job.sh ${model} ${input_dir} ${feature_file} ${outstem} ${score} ${perm_start} ${N_per_job} ${group} ${outdir}"
 #            ${CBIG_CODE_DIR}/setup/CBIG_pbsubmit -walltime 12:00:0 -mem 16gb -joberr ${errfile} -jobout ${outfile} \
 #            -cmd "${cmd}" -name ${model}_PFM
         fi
