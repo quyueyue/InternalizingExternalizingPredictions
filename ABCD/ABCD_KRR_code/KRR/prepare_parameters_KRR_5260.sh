@@ -5,13 +5,13 @@
 #SBATCH --partition psych_day
 
 root_dir=`dirname "$(readlink -f "$0")"`
-csv_file='/gpfs/milgram/project/holmes/yq222/FYP/ABCD/behavioral_data/ABCD_alldata.csv'
-subject_list='/gpfs/milgram/project/holmes/yq222/FYP/ABCD/behavioral_data/release2_subjects_mf_all_task_all_score_unrelated.txt'
-feature_file='/gpfs/milgram/project/holmes/yq222/FYP/ABCD/fMRI_data/FC_subjects_all_task_all_score_rs_bp_sm6.mat'
-y_list='/gpfs/milgram/project/holmes/yq222/FYP/ABCD/behavioral_data/variables_to_predict.txt'
-covariate_list='/gpfs/milgram/project/holmes/yq222/FYP/ABCD/behavioral_data/covariates_list.txt'
+csv_file='/gpfs/milgram/project/holmes/yq222/FYP/ABCD/behavioral_data/5260/ABCD_5260_alldata.csv'
+subject_list='/gpfs/milgram/project/holmes/yq222/FYP/ABCD/behavioral_data/5260/ICCW_5260_subject_list_unrelated.txt'
+feature_file='/gpfs/milgram/project/holmes/yq222/FYP/ABCD/fMRI_data/5260/ICCW_5260_FC.mat'
+y_list='/gpfs/milgram/project/holmes/yq222/FYP/ABCD/behavioral_data/5260/ICCW_ABCD_y_variables.txt'
+covariate_list='/gpfs/milgram/project/holmes/yq222/FYP/ABCD/behavioral_data/5260/covariates_list.txt'
 outstem='all_score'
-outdir='/gpfs/milgram/project/holmes/yq222/FYP/ABCD_output_rs_KRR/'
+outdir='/gpfs/milgram/project/holmes/yq222/FYP/ABCD_output_rs_KRR_5260/'
 num_leave_out=3
 num_inner_folds=10
 lambda_set_file=none

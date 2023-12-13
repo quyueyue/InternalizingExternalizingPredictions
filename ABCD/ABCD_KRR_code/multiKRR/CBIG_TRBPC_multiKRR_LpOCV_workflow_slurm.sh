@@ -72,7 +72,7 @@ if [ "$stage" = "submitloop" ]; then
 		do
 			cmd="${root_dir}/CBIG_TRBPC_multiKRR_LpOCV_testloop.sh -p ${paramfile} -t ${test_fold} -o ${outdir}"
 			outfile=${outdir}/job_err_out/testloop_${test_fold}.out
-			sbatch --job-name=${testLPname} --partition=week --time=50:00:00 --mem-per-cpu=16G --wrap="${root_dir}/CBIG_TRBPC_multiKRR_LpOCV_testloop.sh -p ${paramfile} -t ${test_fold} -o ${outdir}"
+			sbatch --job-name=${testLPname} --partition=week --time=50:00:00 --mem-per-cpu=30G --wrap="${root_dir}/CBIG_TRBPC_multiKRR_LpOCV_testloop.sh -p ${paramfile} -t ${test_fold} -o ${outdir}"
 		done
 
 	fi
