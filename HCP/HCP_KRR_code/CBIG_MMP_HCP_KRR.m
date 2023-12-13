@@ -137,7 +137,7 @@ if ~exist(fullfile(outdir,cov_mat))
     cov_names = cov_list{1};
     fclose(fid);
     num_cov = size(cov_names,1);
-    cov_types = {'continuous', 'continuous'}; % define covariate types
+    cov_types = {'categorical','continuous', 'continuous'}; % define covariate types
     cov = CBIG_generate_covariates_from_csv(score_csv, 'Subject', cov_names, cov_types, ...
          sub_txt, 'none', 'none', fullfile(outdir,cov_mat), ',');
 else
