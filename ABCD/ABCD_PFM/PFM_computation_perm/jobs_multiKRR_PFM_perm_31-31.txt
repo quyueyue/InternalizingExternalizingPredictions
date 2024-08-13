@@ -1,0 +1,1 @@
+/gpfs/milgram/pi/holmes/yq222/FYP/ABCD/ABCD_PFM/PFM_computation_perm/CBIG_TRBPC_KRR_PFM_perm_job.sh multiKRR /gpfs/milgram/project/holmes/yq222/FYP/FYP_output/ /gpfs/milgram/project/holmes/yq222/FYP/ABCD/fMRI_data/FC_all.mat all_score 31 1 1000 /gpfs/milgram/project/holmes/yq222/FYP/ABCD/behavioral_data/site_id_list.txt /gpfs/milgram/project/holmes/yq222/FYP/FYP_output/PFM_perm/
