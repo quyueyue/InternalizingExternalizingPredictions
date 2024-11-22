@@ -1,0 +1,9 @@
+#!/bin/bash
+#SBATCH -J exact_test_HBN_young
+#SBATCH -t 1-00:00:00
+#SBATCH --mem=30G
+#SBATCH --partition psych_day
+
+module load miniconda
+conda activate py3_env
+python exact_test_for_comparison_HBN_young.py
