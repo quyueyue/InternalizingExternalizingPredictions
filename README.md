@@ -7,7 +7,7 @@ The code pipeline for this project was adapted from Chen, J., Tam, A., Kebets, V
 
 # TERMINOLOGY
 The CBIG_CODE_DIR refers to the local directory where the CBIG repository is cloned.
-The Int_Ext_DIR refers to the local directory where the code for this current repo (InternalizingExternalizingPredictions) is cloned.
+The IntExt_DIR refers to the local directory where the code for this current repo (InternalizingExternalizingPredictions) is cloned.
 Please set them up as separate variables in CBIG_TRBPC_tested_config_adapted.sh. 
 
 # SOFTWARE DEPENDENCIES FOR THIS PROJECT
