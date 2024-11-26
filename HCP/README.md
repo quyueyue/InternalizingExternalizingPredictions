@@ -4,6 +4,9 @@ This directory contains all analysis code needed for:
 ## HCP_KRR_code
 Using 60 random initiations of 10-fold cross-validated kernel ridge regression (KRR) models to predict measures of internalizing and externalizing behavior
 
+## HCP_KRR_perm
+Using outputs from HCP_KRR_code to evaluate predictive accuracy of KRR model prediction using permutation testing
+
 ## HCP_PFM
 ### PFM_computation
 Using outputs from HCP_KRR_code to compute predictive feature matrices (PFM; a matrix of predictive feature weights) associated with each behavior
