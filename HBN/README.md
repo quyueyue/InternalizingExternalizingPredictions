@@ -1,4 +1,4 @@
-# Analysis pipeline in HBN adults
+# Analysis pipeline in HBN adolescents
 This directory contains all analysis code needed for:
 
 ## HBN_KRR_code
