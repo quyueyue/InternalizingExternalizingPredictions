@@ -26,7 +26,6 @@ HCP_KRR_PFM_dir='/gpfs/milgram/project/holmes/yq222/FYP/HCP/HCP_output_KRR/'
 
 ## follow the orders in variables_to_predict_hcp.txt
 HCP_varnames=np.array(['ASR_Intn_Raw','ASR_Anxd_Raw','ASR_Witd_Raw',
-'ASR_Soma_Raw',
 'ASR_Extn_Raw','ASR_Rule_Raw','ASR_Aggr_Raw'])
 ## For each of the 87571 FC edges, out of 120 CV folds, p value = the proportion of feature importance in adult internalizing < or > adult externalizing, whichever with lower proportion
 ## Higher proportion of larger values in the direction with more higher values, lower p-value
