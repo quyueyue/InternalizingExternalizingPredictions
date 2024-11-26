@@ -22,13 +22,12 @@ def get_exact_p(x,y):
     
     return dir,pval
 
-ABCD_KRR_PFM_dir='/gpfs/milgram/project/holmes/yq222/FYP/ABCD_output_rs_KRR_5260/' ## CHANGE THIS
+ABCD_KRR_PFM_dir='/gpfs/milgram/project/holmes/yq222/FYP/ABCD_output_rs_KRR_5260/' ## CHANGE THIS. THIS SHOULD BE $IntExt_DIR/ABCD/ABCD_KRR_OUTPUT
 
 ## follow the orders in ICCW_ABCD_y_variables.txt
 ABCD_varnames=np.array(['cbcl_scr_syn_internal_r',
  'cbcl_scr_syn_anxdep_r',
  'cbcl_scr_syn_withdep_r',
- 'cbcl_scr_syn_somatic_r',
  'cbcl_scr_syn_external_r',
  'cbcl_scr_syn_rulebreak_r',
  'cbcl_scr_syn_aggressive_r'])
@@ -38,14 +37,12 @@ child_int_ind = np.where(ABCD_varnames=='cbcl_scr_syn_internal_r')[0][0]
 child_ext_ind = np.where(ABCD_varnames=='cbcl_scr_syn_external_r')[0][0]
 child_anx_dep_ind=np.where(ABCD_varnames=='cbcl_scr_syn_anxdep_r')[0][0]
 child_witd_dep_ind=np.where(ABCD_varnames=='cbcl_scr_syn_withdep_r')[0][0]
-child_soma_ind=np.where(ABCD_varnames=='cbcl_scr_syn_somatic_r')[0][0]
 child_rulebreak_ind = np.where(ABCD_varnames=='cbcl_scr_syn_rulebreak_r')[0][0]
 child_aggressive_ind = np.where(ABCD_varnames=='cbcl_scr_syn_aggressive_r')[0][0]
 
 PFM_child_int=scipy.io.loadmat(os.path.join(ABCD_KRR_PFM_dir,f'PFM_score{child_int_ind+1}_all_folds.mat'))['PFM_all_folds']
 PFM_child_anx_dep=scipy.io.loadmat(os.path.join(ABCD_KRR_PFM_dir,f'PFM_score{child_anx_dep_ind+1}_all_folds.mat'))['PFM_all_folds']
 PFM_child_witd_dep=scipy.io.loadmat(os.path.join(ABCD_KRR_PFM_dir,f'PFM_score{child_witd_dep_ind+1}_all_folds.mat'))['PFM_all_folds']
-PFM_child_som=scipy.io.loadmat(os.path.join(ABCD_KRR_PFM_dir,f'PFM_score{child_soma_ind+1}_all_folds.mat'))['PFM_all_folds']
 PFM_child_ext=scipy.io.loadmat(os.path.join(ABCD_KRR_PFM_dir,f'PFM_score{child_ext_ind+1}_all_folds.mat'))['PFM_all_folds']
 PFM_child_rulebreak = scipy.io.loadmat(os.path.join(ABCD_KRR_PFM_dir,f'PFM_score{child_rulebreak_ind+1}_all_folds.mat'))['PFM_all_folds']
 PFM_child_aggressive = scipy.io.loadmat(os.path.join(ABCD_KRR_PFM_dir,f'PFM_score{child_aggressive_ind+1}_all_folds.mat'))['PFM_all_folds']
@@ -53,11 +50,8 @@ PFM_child_aggressive = scipy.io.loadmat(os.path.join(ABCD_KRR_PFM_dir,f'PFM_scor
 ## Record p-values for each comparison
 pvals_cv_mean_int_ext=np.zeros((87571,)) 
 pvals_cv_mean_anx_witd = np.zeros((87571,))
-# pvals_cv_mean_som_witd = np.zeros((87571,))
-# pvals_cv_mean_anx_som = np.zeros((87571,))
 pvals_cv_mean_anx_ext = np.zeros((87571,))
 pvals_cv_mean_witd_ext = np.zeros((87571,))
-# pvals_cv_mean_som_ext = np.zeros((87571,))
 pvals_cv_mean_within_ext = np.zeros((87571,))
 pvals_cv_mean_rulebreak_int = np.zeros((87571,))
 pvals_cv_mean_aggressive_int = np.zeros((87571,))
@@ -65,11 +59,8 @@ pvals_cv_mean_aggressive_int = np.zeros((87571,))
 ## Record the specific directionality for each comparison
 dir_int_ext=np.zeros((87571,)) 
 dir_anx_witd = np.zeros((87571,))
-# dir_som_witd = np.zeros((87571,))
-# dir_anx_som = np.zeros((87571,))
 dir_anx_ext = np.zeros((87571,))
 dir_witd_ext = np.zeros((87571,))
-# dir_som_ext = np.zeros((87571,))
 dir_within_ext = np.zeros((87571,))
 dir_rulebreak_int = np.zeros((87571,))
 dir_aggressive_int = np.zeros((87571,))
@@ -78,11 +69,8 @@ dir_aggressive_int = np.zeros((87571,))
 for i in range(87571):
     dir_int_ext[i],pvals_cv_mean_int_ext[i]=get_exact_p(PFM_child_int[i,:],PFM_child_ext[i,:])
     dir_anx_witd[i],pvals_cv_mean_anx_witd[i]=get_exact_p(PFM_child_anx_dep[i,:],PFM_child_witd_dep[i:,])
-    # dir_som_witd[i],pvals_cv_mean_som_witd[i]=get_exact_p(PFM_child_som[i:,],PFM_child_witd_dep[i:,])
-    # dir_anx_som[i],pvals_cv_mean_anx_som[i]=get_exact_p(PFM_child_anx_dep[i,:],PFM_child_som[i:,])
     dir_anx_ext[i],pvals_cv_mean_anx_ext[i]=get_exact_p(PFM_child_anx_dep[i,:],PFM_child_ext[i,:])
     dir_witd_ext[i],pvals_cv_mean_witd_ext[i]=get_exact_p(PFM_child_witd_dep[i,:],PFM_child_ext[i,:])
-    # dir_som_ext[i],pvals_cv_mean_som_ext[i]=get_exact_p(PFM_child_som[i:,],PFM_child_ext[i,:])
     dir_within_ext[i],pvals_cv_mean_within_ext[i]=get_exact_p(PFM_child_rulebreak[i,:],PFM_child_aggressive[i,:])
     dir_rulebreak_int[i],pvals_cv_mean_rulebreak_int[i]=get_exact_p(PFM_child_rulebreak[i,:],PFM_child_int[i,:])
     dir_aggressive_int[i],pvals_cv_mean_aggressive_int[i]=get_exact_p(PFM_child_aggressive[i,:],PFM_child_int[i,:])
@@ -99,42 +87,25 @@ np.savetxt(os.path.join(ABCD_KRR_PFM_dir,'exact_test/dir_int_ext.csv'),dir_int_e
 qvals_concatenated = fdrcorrection(pvals_concatenated)
 qvals_int_ext = qvals_concatenated[1][:87571]
 qvals_anx_witd = qvals_concatenated[1][87571:87571*2]
-# qvals_som_witd = qvals_concatenated[1][87571*2:87571*3]
-# qvals_anx_som = qvals_concatenated[1][87571*3:87571*4]
 qvals_anx_ext = qvals_concatenated[1][87571*2:87571*3]
 qvals_witd_ext = qvals_concatenated[1][87571*3:87571*4]
-# qvals_som_ext = qvals_concatenated[1][87571*6:87571*7]
 qvals_within_ext = qvals_concatenated[1][87571*4:87571*5]
 qvals_rulebreak_int = qvals_concatenated[1][87571*5:87571*6]
 qvals_aggressive_int = qvals_concatenated[1][87571*6:87571*7]
 
-## FDR separately
-# qvals_int_ext=fdrcorrection(pvals_cv_mean_int_ext)[1]
-# qvals_within_int = fdrcorrection(pvals_cv_mean_within_int)[1]
-# qvals_anx_ext = fdrcorrection(pvals_cv_mean_anx_ext)[1]
-# qvals_witd_ext = fdrcorrection(pvals_cv_mean_witd_ext)[1]
-# qvals_within_ext = fdrcorrection(pvals_cv_mean_within_ext)[1]
-# qvals_rulebreak_int = fdrcorrection(pvals_cv_mean_rulebreak_int)[1]
-# qvals_aggressive_int = fdrcorrection(pvals_cv_mean_aggressive_int)[1]
 
 prop_sig_diff_int_ext=np.sum(qvals_int_ext<0.05)/87571 ## 34689 out of 87571; 0.3961242877208208/0.33925614644117347 (joint FDR)
 prop_sig_diff_anx_witd=np.sum(qvals_anx_witd<0.05)/87571  ## 0.0004567722191136335/0.024768473581436776
-# prop_sig_diff_som_witd=np.sum(qvals_som_witd<0.05)/87571  ## 0.0004567722191136335/0.024768473581436776
-# prop_sig_diff_anx_som=np.sum(qvals_anx_som<0.05)/87571  ## 0.0004567722191136335/0.024768473581436776
 prop_sig_diff_anx_ext=np.sum(qvals_anx_ext<0.05)/87571 ## 0.4897968505555492/0.4424409907389433
 prop_sig_diff_witd_ext=np.sum(qvals_witd_ext<0.05)/87571 ## 0.13899578627627868/0.13899578627627868
-# prop_sig_diff_som_ext=np.sum(qvals_som_ext<0.05)/87571
 prop_sig_diff_within_ext=np.sum(qvals_within_ext<0.05)/87571 ## 0.17414440853707278/0.17414440853707278
 prop_sig_diff_rulebreak_int=np.sum(qvals_rulebreak_int<0.05)/87571 ## 0.3582121935343892/0.3014354066985646
 prop_sig_diff_aggressive_int=np.sum(qvals_aggressive_int<0.05)/87571 ## 0.3882678055520663/0.335773258270432
 
 print(f'The proportion between grand internalizing and externalizing is {prop_sig_diff_int_ext}.')
 print(f'The proportion between anxious/depressed and withdrawn is {prop_sig_diff_anx_witd}.')
-# print(f'The proportion between somatic problems and withdrawn is {prop_sig_diff_som_witd}.')
-# print(f'The proportion between anxious/depressed and somatic problems is {prop_sig_diff_anx_som}')
 print(f'The proportion between anxious/depressed and grand externalizing is {prop_sig_diff_anx_ext}.')
 print(f'The proportion between withdrawn/depressed and grand externalizing is {prop_sig_diff_witd_ext}.')
-# print(f'The proportion between somatic problems and grand externalizing is {prop_sig_diff_som_ext}.')
 print(f'The proportion between rulebreaking and aggressive behavior is {prop_sig_diff_within_ext}.')
 print(f'The proportion between rulebreaking behavior and grand internalizing is {prop_sig_diff_rulebreak_int}.')
 print(f'The proportion between aggressive behavior and grand internalizing is {prop_sig_diff_aggressive_int}.')
