@@ -9,6 +9,10 @@ Suppose that all input files are under the directory `$IntExt_DIR/HCP/HCP_data_i
 ## Inputs
 Since permutation testing is conducted on outputs from KRR, the KRR model output directory `$IntExt_Dir/HCP/HCP_KRR_output/` is entered as the input directory to the permutation function.
 
+The data .csv file containing HCP Subject ID and Family_ID is stored under `$IntExt_DIR/HCP/HCP_data_inputs/` as `HCP_alldata_filtered.csv` and will be an input to the KRR permutation function (to prevent splitting people from the same family across training and testing sets)
+
+The subject IDs of the 423 HCP adults used in the analysis is stored under `$IntExt_DIR/HCP/HCP_data_inputs/` as `HCP_423_subjects.txt` and will be used as an input to the KRR permutation function.
+
 ## Implementation
 
 1. Run `sbatch HCP_KRR_perm.sh`
