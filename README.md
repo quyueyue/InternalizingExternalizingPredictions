@@ -15,4 +15,5 @@ Freesurfer (5.3.0; https://surfer.nmr.mgh.harvard.edu)
 FSL (5.0.8; https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation)
 MATLAB (2018b; https://www.mathworks.com/products/matlab.html)
 Jupyter Notebook 6.4.5 (Python 3.9.7 ipykernel; https://jupyter.org)
+Python/3.10.8-GCCcore-12.2.0
 neuroCombat (v1.0.13) package in Rv 4.2.0. 
