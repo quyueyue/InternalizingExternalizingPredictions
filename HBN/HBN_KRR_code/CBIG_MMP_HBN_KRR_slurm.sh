@@ -17,9 +17,9 @@ outerFolds=10
 # DON'T CHANGE: 10 inner cv folds
 innerFolds=10
 # CHANGE: specify the directory containing the list of 752 subjects named "HBN_752_subjects.txt"
-subtxt="$HBN_dir/HBN_data_inputs/HBN_subjects.txt"
+subtxt="$HBN_dir/HBN_data_inputs/HBN_229_subjects.txt"
 # CHANGE: specify the directory containing a data frame with 1. Subject (ID); 2. Gender; 3. AgeInYrs; 4. ZygositySR; 5. Family_ID; 6. Race; 7. All ASR internalizing and externalizing scales; 8. mean FD (Framewise Displacement)
-scorecsv="$HBN_dir/HBN_data_inputs/HBN_CBCL_old.csv"
+scorecsv="$HBN_dir/HBN_data_inputs/HBN_CBCL.csv"
 # CHANGE: specify the directory containing the list of covariates (AgeinYrs and FD_mean)
 covtxt="$HBN_dir/HBN_data_inputs/covariates_list_HBN.txt"
 # CHANGE: specify the directory containing the list of variables to predict (ASR variable names)
