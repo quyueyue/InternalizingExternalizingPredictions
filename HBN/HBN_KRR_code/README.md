@@ -1,8 +1,21 @@
-# Single-Kernel Regression Leave-p-Out Cross-Validation workflow in ABCD Study
+# 60 Random Initiations of 10-fold Cross-Validated Single-Kernel Regression workflow in HBN Analyses
 
+Functions in this folder perform single-kernel ridge regression nested cross validation used in the HBN analyses. 
 
-Functions in this folder perform single-kernel ridge regression nested cross validation used in the HCP analyses. 
+Suppose that the outputs of the KRR function goes to `$IntExt_DIR/HBN/HBN_output_KRR/`.
 
-Suppose that all input files are under the directory `$IntExt_DIR/HCP/behavioral_data/` and `$IntExt_DIR/HCP/fMRI_data/`, and all outputs of the KRR go to `$IntExt_DIR/HCP/HCP_output_KRR/KRR_features_rs_752/` where KRR_features_rs_752 is the outstem,
+## Inputs
+Suppose that all input files are under the directory `$IntExt_DIR/HBN/HBN_data_inputs/`
 
-Run `sbatch CBIG_MMP_HCP_KRR_slurm.sh`
+The resting-state functional connectivity data for the 423 HBN adolescents is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `HBN_old_RSFC.mat`. After harmonizing the site differences using neuroCombat.R, the output is `HBN_old_RSFC_combat.mat` and will be used as the input to the KRR function.
+
+The subject IDs of the 229 HBN adolescents used in the analysis is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `HBN_229_subjects.txt`.
+
+The data .csv containing subject IDs, site information behavioral variables and covariates is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `HBN_CBCL.csv`.
+
+The .txt file containing the names of covariates (in our analyses they are Sex and Age, corresponding to column names in `HBN_CBCL.csv`) is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `covariates_list_HBN.txt`.
+
+The .txt file containing the list of variable names to predict (the names of the CBCL internalizing and externalizing measures) is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `CBCL_variables_to_predict_HBN.tx`.
+
+## Implementation
+Run `sbatch CBIG_MMP_HBN_KRR_slurm.sh`
