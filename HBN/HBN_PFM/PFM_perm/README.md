@@ -7,7 +7,7 @@ We implemented 2000 permutations in total. Suppose that all permuted predictive 
 ## Inputs
 Suppose all predictive feature weight matrices are stored in `$IntExt_DIR/HBN/HBN_output_KRR/` and are used as inputs to PFM permutation function.
 
-All behavioral and neuroimaging data input files are stored in `$IntExt_DIR/HBN/HBN_data_inputs/`. The resting-state functional connectivity data for the 229 HBN adolescents is stored under this directory as `features_rs_423.mat`. 
+All behavioral and neuroimaging data input files are stored in `$IntExt_DIR/HBN/HBN_data_inputs/`. The resting-state functional connectivity data for the 229 HBN adolescents is stored under this directory as `HBN_RSFC_combat.mat`. 
 
 The data .csv file containing HBN Subject ID and Family_ID is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `HBN_alldata_filtered.csv` and will be an input to the PFM permutation function (to prevent splitting people from the same family across training and testing sets)
 
