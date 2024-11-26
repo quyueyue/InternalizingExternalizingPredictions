@@ -11,8 +11,8 @@ All behavioral and neuroimaging data input files are stored in `$IntExt_DIR/HBN/
 
 The data .csv file containing HBN Subject ID and Family_ID is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `HBN_alldata_filtered.csv` and will be an input to the PFM permutation function (to prevent splitting people from the same family across training and testing sets)
 
-The subject IDs of the 229 HBN adolescents used in the analysis is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `HBN_subjects.txt` and will be used as an input to the PFM permutation function.
+The subject IDs of the 229 HBN adolescents used in the analysis is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `HBN_229_subjects.txt` and will be used as an input to the PFM permutation function.
 
 ## Implementation
 Run `sbatch HBN_PFM_perm.sh` or 
-run `bash CBIG_TRBPC_PFM_perm_wrapper_HBN.sh -i $IntExt_DIR/HBN/HBN_output_KRR/ -f $IntExt_DIR/HBN/fMRI_data/HBN_RSFC_combat.mat -n 2000 -t 2000 -o $IntExt_Dir/HBN/HBN_perm_output/PFM/ -p $IntExt_DIR/HBN/HBN_data_inputs/HBN_CBCL_old.csv -l $IntExt_DIR/HBN/HBN_data_inputs/HBN_subjects.txt -c Milgram`
+run `bash CBIG_TRBPC_PFM_perm_wrapper_HBN.sh -i $IntExt_DIR/HBN/HBN_output_KRR/ -f $IntExt_DIR/HBN/fMRI_data/HBN_RSFC_combat.mat -n 2000 -t 2000 -o $IntExt_Dir/HBN/HBN_perm_output/PFM/ -p $IntExt_DIR/HBN/HBN_data_inputs/HBN_CBCL.csv -l $IntExt_DIR/HBN/HBN_data_inputs/HBN_229_subjects.txt -c Milgram`
