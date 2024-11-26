@@ -10,7 +10,7 @@ Suppose all data input files are in `$IntExt_DIR/HBN/HBN_data_inputs`, and all P
 
 Since the computation of PFM uses outputs from KRR in `$IntExt_DIR/HBN/HBN_output_KRR/`, this directory will be entered as both input and output.
 
-The resting-state functional connectivity data for these 229 HBN subjects is called `features_rs_423.mat` and is stored under the directory `$IntExt_Dir/HBN/HBN_data_inputs/`.
+The resting-state functional connectivity data for these 229 HBN subjects after ComBat harmonization is called `HBN_RSFC_combat.mat` and is stored under the directory `$IntExt_Dir/HBN/HBN_data_inputs/`.
 
 ## Implementation
 To compute predictive feature weight for single-KRR model, run `bash CBIG_TRBPC_PFM_wrapper_HBN.sh -i /gpfs/milgram/project/holmes/yq222/FYP/HBN/HBN_output_KRR/ -f /gpfs/milgram/project/holmes/yq222/FYP/HBN/HBN_data_inputs/HBN_RSFC_combat.mat -n 6 -o /gpfs/milgram/project/holmes/yq222/FYP/HBN/HBN_output_KRR/ -m KRR -c Milgram`
