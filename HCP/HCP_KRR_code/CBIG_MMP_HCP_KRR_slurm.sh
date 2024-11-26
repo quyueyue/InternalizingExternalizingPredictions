@@ -8,7 +8,7 @@
 
 # CHANGE: specify the general HCP analysis directory
 HCP_dir="$IntExt_DIR/HCP/"
-# CHANGE: specify the directory containing the resting-state FC data named "features_rs_752.mat" (don't add the .mat)
+# CHANGE: specify the directory containing the resting-state FC data named "features_rs_423.mat"
 feature_path="$HCP_dir/fMRI_data/features_rs_423.mat"
 # CHANGE: specify the directory containing the results of the single-KRR model
 outdir="$HCP_dir/HCP_output_KRR"
