@@ -6,5 +6,5 @@
 
 for i in {1..6}
 do
-    bash CBIG_MMP_HBN_stats_perm_wrapper.sh "singleKRR" "KRR_HBN" $IntExt_DIR/HBN/HBN_old_output_KRR/permutations/pred_acc/  $IntExt_DIR/HBN/HBN_old_output_KRR/ $IntExt_DIR/HBN/behavioral_data/HBN_old_subjects.txt $IntExt_DIR/HBN/behavioral_data/HBN_CBCL_old.csv $i
+    bash CBIG_MMP_HBN_stats_perm_wrapper.sh "singleKRR" "KRR_HBN" $IntExt_DIR/HBN/HBN_output_KRR/permutations/pred_acc/  $IntExt_DIR/HBN/HBN_output_KRR/ $IntExt_DIR/HBN/HBN_data_inputs/HBN_subjects.txt $IntExt_DIR/HBN/HBN_data_inputs/HBN_CBCL.csv $i
 done
