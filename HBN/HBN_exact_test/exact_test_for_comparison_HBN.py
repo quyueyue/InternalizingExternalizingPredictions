@@ -22,7 +22,7 @@ def get_exact_p(x,y):
     
     return dir,pval
 
-HBN_KRR_PFM_dir='/gpfs/milgram/project/holmes/yq222/FYP/HBN/HBN_old_output_KRR/'
+HBN_KRR_PFM_dir='/gpfs/milgram/project/holmes/yq222/FYP/HBN/HBN_output_KRR/'
 
 ## For each of the 87571 FC edges, out of 120 CV folds, p value = the proportion of feature importance in adult internalizing < or > adult externalizing, whichever with lower proportion
 ## Higher proportion of larger values in the direction with more higher values, lower p-value
@@ -227,5 +227,5 @@ for i in range(len(network_ind)-1):
 # # save to file
 # fig = sns_plot.get_figure()
 # fig.savefig(os.path.join(HBN_KRR_PFM_dir,'exact_test/HBN_KRR_PFM_diff_int_ext_230913.pdf'))
-np.savetxt(os.path.join(HBN_KRR_PFM_dir,'exact_test/HBN_old_qvals_exact_test_int_ext.csv'),qvals_bin_mat_prop)
-np.savetxt(os.path.join(HBN_KRR_PFM_dir,'exact_test/HBN_old_dir_exact_test_int_ext.csv'),dir_mat_prop)
+np.savetxt(os.path.join(HBN_KRR_PFM_dir,'exact_test/HBN_qvals_exact_test_int_ext.csv'),qvals_bin_mat_prop)
+np.savetxt(os.path.join(HBN_KRR_PFM_dir,'exact_test/HBN_dir_exact_test_int_ext.csv'),dir_mat_prop)
