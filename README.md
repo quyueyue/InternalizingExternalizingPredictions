@@ -6,8 +6,8 @@ We used resting-state functional connectivity to predict a range of internalizin
 # SETUP INSTRUCTIONS
 The code pipeline for this project was adapted from Chen, J., Tam, A., Kebets, V. et al. Shared and unique brain network features predict cognitive, personality, and mental health scores in the ABCD study. Nat Commun 13, 2217 (2022). https://doi.org/10.1038/s41467-022-29766-8 (code repo: https://github.com/ThomasYeoLab/CBIG/tree/master/stable_projects/predict_phenotypes/ChenTam2022_TRBPC) which has a lot of code dependencies from the Computational Brain Imaging Group (CBIG) repository (https://github.com/ThomasYeoLab/CBIG/tree/master). Therefore, we advise you to clone the CBIG repository into your local directory and follow the setup instructions for the CBIG repository. The instructions are available at: https://github.com/ThomasYeoLab/CBIG/blob/master/setup/README.md. Instead of using CBIG/setup/CBIG_sample_config.sh, you need to adapt and use InternalizingExternalizingPredictions/setup/CBIG_TRBPC_tested_config_adapted.sh. 
 
-The CBIG_CODE_DIR refers to the local directory where the CBIG repository is cloned.
-The IntExt_DIR refers to the local directory where the code for this current repo (InternalizingExternalizingPredictions) is cloned.
+The `CBIG_CODE_DIR` variable refers to the local directory where the CBIG repository is cloned.
+The `IntExt_DIR` variable refers to the local directory where the code for this current repo (InternalizingExternalizingPredictions) is cloned.
 Please set them up as separate variables in CBIG_TRBPC_tested_config_adapted.sh. 
 
 # SOFTWARE DEPENDENCIES FOR THIS PROJECT
