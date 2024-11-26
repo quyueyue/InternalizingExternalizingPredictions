@@ -14,7 +14,7 @@ The csv file containing all 5260 subjects' behavioral data and covariates in the
 
 The resting-state functional connectivity data for these 5260 subjects in the same order as specified by `ICCW_5260_subject_list_unrelated.txt` is called `ICCW_5260_FC.mat`.
 
-The .txt file containing the column names of the covariates to be entered into the model in `ABCD_5260_alldata.csv` is called `covariates_list.txt`.
+The .txt file containing the column names of the covariates from `ABCD_5260_alldata.csv` is called `covariates_list.txt`.
 
 ## Implementation
 To perform single-KRR model prediction, 
