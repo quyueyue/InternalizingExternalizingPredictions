@@ -16,11 +16,11 @@ outdir="$HCP_dir/HCP_output_KRR"
 outerFolds=10
 # DON'T CHANGE: 10 inner cv folds
 innerFolds=10
-# CHANGE: specify the directory containing the list of 752 subjects named "HCP_752_subjects.txt"
+# CHANGE: specify the directory containing the list of 423 subjects named "HCP_423_subjects.txt"
 subtxt="$HCP_dir/behavioral_data/HCP_423_subjects.txt"
-# CHANGE: specify the directory containing a data frame with 1. Subject (ID); 2. Gender; 3. AgeInYrs; 4. ZygositySR; 5. Family_ID; 6. Race; 7. All ASR internalizing and externalizing scales; 8. mean FD (Framewise Displacement)
+# CHANGE: specify the directory containing a data frame with 1. Subject (ID); 2. Gender; 3. AgeInYrs; 4. ZygositySR; 5. Family_ID; 6. Race; 7. All ASR internalizing and externalizing scales;
 scorecsv="$HCP_dir/behavioral_data/HCP_alldata_filtered.csv"
-# CHANGE: specify the directory containing the list of covariates (AgeinYrs and FD_mean)
+# CHANGE: specify the directory containing the list of covariates (AgeinYrs and Gender)
 covtxt="$HCP_dir/behavioral_data/covariates_list.txt"
 # CHANGE: specify the directory containing the list of variables to predict (ASR variable names)
 predvar="$HCP_dir/behavioral_data/variables_to_predict_hcp.txt"
