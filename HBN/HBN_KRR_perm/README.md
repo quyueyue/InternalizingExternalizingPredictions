@@ -11,7 +11,7 @@ Since permutation testing is conducted on outputs from KRR, the KRR model output
 
 The data .csv file containing HBN Subject ID, site name and behavioral variables is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `HBN_CBCL.csv` and will be an input to the KRR permutation function (to prevent splitting people from the same site across training and testing sets)
 
-The subject IDs of the 423 HBN adults used in the analysis is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `HBN_423_subjects.txt` and will be used as an input to the KRR permutation function.
+The subject IDs of the 229 HBN adults used in the analysis is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `HBN_229_subjects.txt` and will be used as an input to the KRR permutation function.
 
 ## Implementation
 
