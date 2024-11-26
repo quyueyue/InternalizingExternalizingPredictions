@@ -15,7 +15,7 @@ The data .csv containing subject IDs, site information behavioral variables and 
 
 The .txt file containing the names of covariates (in our analyses they are Sex and Age, corresponding to column names in `HBN_CBCL.csv`) is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `covariates_list_HBN.txt`.
 
-The .txt file containing the list of variable names to predict (the names of the CBCL internalizing and externalizing measures) is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `CBCL_variables_to_predict_HBN.tx`.
+The .txt file containing the list of variable names to predict (the names of the CBCL internalizing and externalizing measures) is stored under `$IntExt_DIR/HBN/HBN_data_inputs/` as `CBCL_variables_to_predict_HBN.txt`.
 
 ## Implementation
 Run `sbatch CBIG_MMP_HBN_KRR_slurm.sh`
