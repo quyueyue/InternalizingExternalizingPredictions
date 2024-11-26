@@ -9,7 +9,9 @@ Suppose all predictive feature weight matrices are stored in `$IntExt_DIR/HCP/HC
 
 All behavioral and neuroimaging data input files are stored in `$IntExt_DIR/HCP/HCP_data_inputs/`. The resting-state functional connectivity data for the 423 HCP adults is stored under this directory as `features_rs_423.mat`. 
 
-The .csv file
+The data .csv file containing HCP Subject ID and Family_ID is stored under `$IntExt_DIR/HCP/HCP_data_inputs/` as `HCP_alldata_filtered.csv` and will be an input to the PFM permutation function (to prevent splitting people from the same family across training and testing sets)
+
+The subject IDs of the 423 HCP adults used in the analysis is stored under `$IntExt_DIR/HCP/HCP_data_inputs/` as `HCP_423_subjects.txt` and will be used as an input to the PFM permutation function.
 
 ## Implementation
 Run `sbatch HCP_PFM_perm.sh` or 
