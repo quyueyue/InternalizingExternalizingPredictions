@@ -5,7 +5,7 @@
 #SBATCH --partition psych_day
 
 
-perm_dir="$IntExt_DIR/HBN/HBN_old_output_KRR/permutations/PFM/"
+perm_dir="$IntExt_DIR/HBN/HBN_output_KRR/permutations/PFM/"
 outdir=${perm_dir}
 scripts_dir=`dirname "$(readlink -f "$0")"`
 
