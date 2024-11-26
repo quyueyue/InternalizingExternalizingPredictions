@@ -1,5 +1,4 @@
-# Single-Kernel Regression Leave-p-Out Cross-Validation workflow in ABCD Study
-
+# 60 Random Initiations of 10-fold Cross-Validated Single-Kernel Regression workflow in HCP Analyses
 
 Functions in this folder perform single-kernel ridge regression nested cross validation used in the HCP analyses. 
 
