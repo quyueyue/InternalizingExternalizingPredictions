@@ -13,4 +13,5 @@ The assignment of subject IDs to training and testing set at each cross-validati
 
 The resting-state functional connectivity data for these 5260 subjects is called `ICCW_5260_FC.mat` and is stored under the directory `$IntExt_Dir/ABCD/ABCD_data_inputs/`.
 
+## Implementation
 To compute predictive feature weight for single-KRR model, run `bash CBIG_TRBPC_PFM_wrapper.sh -i $IntExt_Dir/ABCD/ABCD_KRR_output/ -f $IntExt_Dir/ABCD/ABCD_data_inputs/ICCW_5260_FC.mat -s $IntExt_Dir/ABCD/ABCD_data_inputs/no_relative_3_fold_sub_list.mat -n 6 -o $IntExt_Dir/ABCD/ABCD_KRR_output/ -m singleKRR -c Milgram`
