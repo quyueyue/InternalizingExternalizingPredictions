@@ -2,11 +2,11 @@
 This directory contains all analysis code needed for:
 
 ## HCP_KRR_code
-Using leave-p sites-out cross-validated kernel ridge regression (KRR) models to predict measures of internalizing and externalizing behavior
+Using 60 random initiations of 10-fold cross-validated kernel ridge regression (KRR) models to predict measures of internalizing and externalizing behavior
 
 ## HCP_PFM
 ### PFM_computation
-Using outputs from ABCD_KRR_code to compute predictive feature matrices (PFM; a matrix of predictive feature weights) associated with each behavior
+Using outputs from HCP_KRR_code to compute predictive feature matrices (PFM; a matrix of predictive feature weights) associated with each behavior
 ### PFM_perm
 Using outputs from PFM_computation to carry out permutation testing at the network level to test the statistical significance for each predictive feature weight associated with each behavior
 ### PFM_significance
