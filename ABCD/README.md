@@ -4,6 +4,9 @@ This directory contains all analysis code needed for:
 ## ABCD_KRR_code
 Using leave-p sites-out cross-validated kernel ridge regression (KRR) models to predict measures of internalizing and externalizing behavior
 
+## ABCD_perm
+Using outputs from ABCD_KRR_code to evaluate predictive accuracy of KRR model prediction using permutation testing
+
 ## ABCD_PFM
 ### PFM_computation
 Using outputs from ABCD_KRR_code to compute predictive feature matrices (PFM; a matrix of predictive feature weights) associated with each behavior
