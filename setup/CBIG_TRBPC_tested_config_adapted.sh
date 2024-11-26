@@ -21,25 +21,9 @@ export CBIG_WB_DIR=/apps/hpc.rhel7/software/ConnectomeWorkbench/1.4.2/
 export CBIG_CARET_DIR=/apps/hpc.rhel7/software/Caret/
 export CBIG_FSLDIR=/apps/hpc.rhel7/software/FSL/6.0.4-centos7_64/
 
-# PLEASE CHANGE: define locations for unit tests data and replication data
-export CBIG_TESTDATA_DIR=$CBIG_CODE_DIR/stable_projects/predict_phenotypes/ChenTam2022_TRBPC/unit_tests
-export CBIG_REPDATA_DIR=$CBIG_CODE_DIR/stable_projects/predict_phenotypes/ChenTam2022_TRBPC/replication
-
-# DO NOT CHANGE: define scheduler location
-export CBIG_SCHEDULER_DIR=/apps/sysapps/TORQUE/bin
-
 # DO NOT CHANGE: set up your environment with the configurations above
 SETUP_PATH=$CBIG_CODE_DIR/setup/CBIG_generic_setup.sh
 source $SETUP_PATH
 
-# PLEASE CHANGE: set up temporary directory for MRIread from FS6.0
-export TMPDIR=/gpfs/milgram/project/holmes/yq222/FYP/Thomas_replication/tmpstore
-
 # Do NOT CHANGE: set up MATLABPATH so that MATLAB can find startup.m in our repo
 export MATLABPATH=$CBIG_CODE_DIR/setup
-
-# specified the default Python environment.
-# Please UNCOMMENT if you follow CBIG's set up for Python environments.
-# We use Python version 3.5 as default.
-# Please see $CBIG_CODE_DIR/setup/python_env_setup/README.md for more details.
-# source activate CBIG_py3
