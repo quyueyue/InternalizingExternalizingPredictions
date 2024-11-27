@@ -83,15 +83,6 @@ qvals_within_ext = qvals_concatenated[1][87571*4:87571*5]
 qvals_rulebreak_int = qvals_concatenated[1][87571*5:87571*6]
 qvals_aggressive_int = qvals_concatenated[1][87571*6:87571*7]
 
-## FDR separately
-# qvals_int_ext=fdrcorrection(pvals_cv_mean_int_ext)[1]
-# qvals_within_int = fdrcorrection(pvals_cv_mean_within_int)[1]
-# qvals_anx_ext = fdrcorrection(pvals_cv_mean_anx_ext)[1]
-# qvals_witd_ext = fdrcorrection(pvals_cv_mean_witd_ext)[1]
-# qvals_within_ext = fdrcorrection(pvals_cv_mean_within_ext)[1]
-# qvals_rulebreak_int = fdrcorrection(pvals_cv_mean_rulebreak_int)[1]
-# qvals_aggressive_int = fdrcorrection(pvals_cv_mean_aggressive_int)[1]
-
 prop_sig_diff_int_ext=np.sum(qvals_int_ext<0.05)/87571 ## 34689 out of 87571; 0.3961242877208208/0.33925614644117347 (joint FDR)
 prop_sig_diff_anx_witd=np.sum(qvals_anx_witd<0.05)/87571  ## 0.0004567722191136335/0.024768473581436776
 prop_sig_diff_anx_ext=np.sum(qvals_anx_ext<0.05)/87571 ## 0.4897968505555492/0.4424409907389433
