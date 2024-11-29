@@ -6,4 +6,4 @@
 
 module load miniconda
 conda activate py3_env
-python exact_test_for_comparison_HBN_old.py
+python exact_test_for_comparison_HBN.py

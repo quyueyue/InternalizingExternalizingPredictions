@@ -37,11 +37,17 @@ adult_rulebreak_ind = np.where(HCP_varnames=='ASR_Rule_Raw')[0][0]
 adult_aggressive_ind = np.where(HCP_varnames=='ASR_Aggr_Raw')[0][0]
 
 PFM_adult_int=scipy.io.loadmat(os.path.join(HCP_KRR_PFM_dir,f'PFM_score{adult_int_ind+1}_all_folds.mat'))['PFM_all_folds']
+PFM_adult_int=PFM_adult_int.reshape(87571, 600)
 PFM_adult_anx_dep=scipy.io.loadmat(os.path.join(HCP_KRR_PFM_dir,f'PFM_score{adult_anx_dep_ind+1}_all_folds.mat'))['PFM_all_folds']
+PFM_adult_anx_dep=PFM_adult_anx_dep.reshape(87571, 600)
 PFM_adult_witd_dep=scipy.io.loadmat(os.path.join(HCP_KRR_PFM_dir,f'PFM_score{adult_witd_dep_ind+1}_all_folds.mat'))['PFM_all_folds']
+PFM_adult_witd_dep=PFM_adult_witd_dep.reshape(87571, 600)
 PFM_adult_ext=scipy.io.loadmat(os.path.join(HCP_KRR_PFM_dir,f'PFM_score{adult_ext_ind+1}_all_folds.mat'))['PFM_all_folds']
+PFM_adult_ext=PFM_adult_ext.reshape(87571, 600)
 PFM_adult_rulebreak = scipy.io.loadmat(os.path.join(HCP_KRR_PFM_dir,f'PFM_score{adult_rulebreak_ind+1}_all_folds.mat'))['PFM_all_folds']
+PFM_adult_rulebreak=PFM_adult_rulebreak.reshape(87571, 600)
 PFM_adult_aggressive = scipy.io.loadmat(os.path.join(HCP_KRR_PFM_dir,f'PFM_score{adult_aggressive_ind+1}_all_folds.mat'))['PFM_all_folds']
+PFM_adult_aggressive=PFM_adult_aggressive.reshape(87571, 600)
 
 ## Record p-values for each comparison
 pvals_cv_mean_int_ext=np.zeros((87571,)) 
@@ -80,8 +86,8 @@ exact_test_dir = os.path.join(HCP_KRR_PFM_dir,'exact_test')
 if not os.path.exists(exact_test_dir):
     os.makedirs(exact_test_dir)
 
-np.savetxt(os.path.join(HCP_KRR_PFM_dir,'exact_test/pvals_concatenated.csv'),pvals_concatenated)
-np.savetxt(os.path.join(HCP_KRR_PFM_dir,'exact_test/dir_int_ext.csv'),dir_int_ext)
+# np.savetxt(os.path.join(HCP_KRR_PFM_dir,'exact_test/pvals_concatenated.csv'),pvals_concatenated)
+# np.savetxt(os.path.join(HCP_KRR_PFM_dir,'exact_test/dir_int_ext.csv'),dir_int_ext)
 qvals_concatenated = fdrcorrection(pvals_concatenated)
 qvals_int_ext = qvals_concatenated[1][:87571]
 qvals_anx_witd = qvals_concatenated[1][87571:87571*2]
@@ -90,15 +96,6 @@ qvals_witd_ext = qvals_concatenated[1][87571*3:87571*4]
 qvals_within_ext = qvals_concatenated[1][87571*4:87571*5]
 qvals_rulebreak_int = qvals_concatenated[1][87571*5:87571*6]
 qvals_aggressive_int = qvals_concatenated[1][87571*6:87571*7]
-
-## FDR separately
-# qvals_int_ext=fdrcorrection(pvals_cv_mean_int_ext)[1]
-# qvals_within_int = fdrcorrection(pvals_cv_mean_within_int)[1]
-# qvals_anx_ext = fdrcorrection(pvals_cv_mean_anx_ext)[1]
-# qvals_witd_ext = fdrcorrection(pvals_cv_mean_witd_ext)[1]
-# qvals_within_ext = fdrcorrection(pvals_cv_mean_within_ext)[1]
-# qvals_rulebreak_int = fdrcorrection(pvals_cv_mean_rulebreak_int)[1]
-# qvals_aggressive_int = fdrcorrection(pvals_cv_mean_aggressive_int)[1]
 
 prop_sig_diff_int_ext=np.sum(qvals_int_ext<0.05)/87571 ## 34689 out of 87571; 0.3961242877208208/0.33925614644117347 (joint FDR)
 prop_sig_diff_anx_witd=np.sum(qvals_anx_witd<0.05)/87571  ## 0.0004567722191136335/0.024768473581436776
@@ -203,37 +200,37 @@ for i in range(len(network_ind)-1):
             dir_mat_prop[i,j]=dir_mat_sum/edge_ct
             
 
-# mask = np.zeros_like(qvals_bin_mat_prop, dtype=np.bool)
-# mask[np.triu_indices_from(mask)] = True
+mask = np.zeros_like(qvals_bin_mat_prop, dtype=np.bool)
+mask[np.triu_indices_from(mask)] = True
 
-# # Want diagonal elements as well
-# mask[np.diag_indices_from(mask)] = False
+# Want diagonal elements as well
+mask[np.diag_indices_from(mask)] = False
 
-# # Set up the matplotlib figure
-# f, ax = plt.subplots(figsize=(20, 20))
+# Set up the matplotlib figure
+f, ax = plt.subplots(figsize=(20, 20))
 
-# # Generate a custom diverging colormap
-# cmap = sns.color_palette("Blues", as_cmap=True)
+# Generate a custom diverging colormap
+cmap = sns.color_palette("Blues", as_cmap=True)
 
-# # Draw the heatmap with the mask and correct aspect ratio
-# sns_plot = sns.heatmap(qvals_bin_mat_prop, mask=mask, cmap=cmap, vmax=1, center=0.5, vmin=0,
-#         square=True, linewidths=.5)
-# sns_plot.set_xticks(list(np.arange(9)+0.5))
-# sns_plot.set_xticklabels(network_names,fontsize=20,rotation=90)
-# sns_plot.set_yticks(list(np.arange(9)+0.5))
-# sns_plot.set_yticklabels(network_names,rotation=0,fontsize=20)
+# Draw the heatmap with the mask and correct aspect ratio
+sns_plot = sns.heatmap(qvals_bin_mat_prop, mask=mask, cmap=cmap, vmax=1, center=0.5, vmin=0,
+        square=True, linewidths=.5)
+sns_plot.set_xticks(list(np.arange(9)+0.5))
+sns_plot.set_xticklabels(network_names,fontsize=20,rotation=90)
+sns_plot.set_yticks(list(np.arange(9)+0.5))
+sns_plot.set_yticklabels(network_names,rotation=0,fontsize=20)
 
-# vline_xrange=np.arange(10)
-# vline_xrange_add=np.insert(vline_xrange,0,0)
-# vline_yrange=(9-vline_xrange_add)/9
+vline_xrange=np.arange(10)
+vline_xrange_add=np.insert(vline_xrange,0,0)
+vline_yrange=(9-vline_xrange_add)/9
 
-# hline_xrange=np.arange(10)+1
-# for i in range(10):
-#     plt.axvline(x=vline_xrange[i],ymin=0,ymax=vline_yrange[i],color='Black')
-#     plt.axhline(y=vline_xrange[i],xmin=0,xmax=hline_xrange[i]/9,color='Black')
+hline_xrange=np.arange(10)+1
+for i in range(10):
+    plt.axvline(x=vline_xrange[i],ymin=0,ymax=vline_yrange[i],color='Black')
+    plt.axhline(y=vline_xrange[i],xmin=0,xmax=hline_xrange[i]/9,color='Black')
 
-# # save to file
-# fig = sns_plot.get_figure()
-# fig.savefig(os.path.join(HCP_KRR_PFM_dir,'exact_test/HCP_KRR_PFM_diff_int_ext_230913.pdf'))
+# save to file
+fig = sns_plot.get_figure()
+fig.savefig(os.path.join(HCP_KRR_PFM_dir,'exact_test/HCP_KRR_PFM_diff_int_ext.pdf'))
 np.savetxt(os.path.join(HCP_KRR_PFM_dir,'exact_test/HCP_qvals_exact_test_int_ext.csv'),qvals_bin_mat_prop)
 np.savetxt(os.path.join(HCP_KRR_PFM_dir,'exact_test/HCP_dir_exact_test_int_ext.csv'),dir_mat_prop)
